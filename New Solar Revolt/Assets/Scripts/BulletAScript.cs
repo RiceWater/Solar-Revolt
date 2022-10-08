@@ -8,6 +8,7 @@ public class BulletAScript : MonoBehaviour
     private Rigidbody2D bulletRigidBody;
     private float moveSpeed;
     private float rotationSpeed;
+
     void Start()
     {
         bulletRigidBody = transform.gameObject.GetComponent<Rigidbody2D>();
@@ -17,12 +18,8 @@ public class BulletAScript : MonoBehaviour
 
     void Update()
     {
-        //Code for traveling towards the target 
-        Vector3 dir =  (Vector2)target.transform.position - bulletRigidBody.position;
-        dir.Normalize();
-        float rotationAmount = Vector3.Cross(dir, transform.up).z;
-        bulletRigidBody.angularVelocity = -rotationAmount * rotationSpeed;
-        bulletRigidBody.velocity = transform.up * moveSpeed;
+        TravelToTarget();
+        CheckOutOfBounds();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -46,5 +43,26 @@ public class BulletAScript : MonoBehaviour
         target = enemy;
     }
 
+    private void TravelToTarget()
+    {
+        Vector3 dir = (Vector2)target.transform.position - bulletRigidBody.position;
+        dir.Normalize();
+        float rotationAmount = Vector3.Cross(dir, transform.up).z;
+        bulletRigidBody.angularVelocity = -rotationAmount * rotationSpeed;
+        bulletRigidBody.velocity = transform.up * moveSpeed;
+    }
 
+    private void CheckOutOfBounds()
+    {
+        int xbound = 50, ybound = 30;
+        if(transform.position.x > xbound || transform.position.x < -xbound)
+        {
+            Destroy(gameObject);
+        }
+        else if(transform.position.y > ybound || transform.position.y < -ybound)
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }

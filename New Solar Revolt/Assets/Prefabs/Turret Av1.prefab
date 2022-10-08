@@ -137,6 +137,7 @@ MonoBehaviour:
   fireRate: 1
   pfBulletA: {fileID: 200645615588126804, guid: d5ec39336ea241546aee2e3c29090d5f, type: 3}
   spawnLocationBulletA: {fileID: 529831527767011737}
+  targetPriority: 71
 --- !u!58 &5773510720556010307
 CircleCollider2D:
   m_ObjectHideFlags: 0
