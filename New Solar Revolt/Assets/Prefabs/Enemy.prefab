@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6801539067739666662}
   - component: {fileID: 6801539067739666661}
-  - component: {fileID: 6801539067739666663}
-  - component: {fileID: 2097003943}
   - component: {fileID: -3600273090924002825}
   - component: {fileID: -8787709243223236165}
+  - component: {fileID: 6801539067739666663}
+  - component: {fileID: 2097003943}
+  - component: {fileID: 4418187035786888154}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,32 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6801539067739666663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801539067739666660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b688791b8f4794fb7a4f6c1bfde1d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
---- !u!114 &2097003943
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801539067739666660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f7c354350cdf22458f07d87739cd808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distanceTraveled: 0
 --- !u!50 &-3600273090924002825
 Rigidbody2D:
   serializedVersion: 4
@@ -151,3 +126,42 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &6801539067739666663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801539067739666660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02b688791b8f4794fb7a4f6c1bfde1d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+--- !u!114 &2097003943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801539067739666660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7c354350cdf22458f07d87739cd808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceTraveled: 0
+--- !u!114 &4418187035786888154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801539067739666660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 646e4915ebf49b34a8bac95d143713ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20

@@ -17,31 +17,34 @@ public class TurretAScript : MonoBehaviour
     public GameObject pfBulletA;
     public Transform spawnLocationBulletA;
 
-    private List<GameObject> enemiesInRange = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemiesInRange = new List<GameObject>();
 
+    //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
+    [SerializeField] private char targetPriority;
 
     private void Start()
     {
-        InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
+        //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
+        targetPriority = 'G';
     }
 
     private void Update()
     {
-        if(target == null)
+        SetTargetPriority();
+        if (target == null)
         {
             return;
         }
-
+        
         RotateTowardsTarget();
 
         //Fires the projectile
-        if(fireCountdown <= 0)
+        if(fireCountdown <= 0 && target != null)
         {
             FireProjectile();
             fireCountdown = 1f / fireRate;
         }
         fireCountdown -= Time.deltaTime;
-
 
     }
 
@@ -51,7 +54,6 @@ public class TurretAScript : MonoBehaviour
         {
             enemiesInRange.Add(collision.gameObject);
         }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -77,6 +79,27 @@ public class TurretAScript : MonoBehaviour
         bullet.GetComponent<BulletAScript>().SetTarget(target.gameObject);   
     }
 
+    private void SetTargetPriority()
+    {
+        switch (targetPriority)
+        {
+            case 'G':
+                TargetEnemyNearGoal();
+                break;
+            case 'R':
+                TargetEnemyFirst();
+                break;
+            case 'S':
+                TargetEnemyMostHP();
+                break;
+            case 'W':
+                TargetEnemyLeastHP();
+                break;
+            default:
+                TargetEnemyNearGoal();
+                break;
+        }
+    }
 
     //Targets the enemy closest to the endpoint 
     private void TargetEnemyNearGoal()
@@ -99,11 +122,55 @@ public class TurretAScript : MonoBehaviour
         }
     }
 
-    //Targets healthiest enemy
-    private void TargetHealthiestEnemy()
+    //Targets enemy that came into range first
+    private void TargetEnemyFirst()
     {
+        if(enemiesInRange.Count < 1)
+        {
+            return;
+        }
 
+        target = enemiesInRange[0].transform;
     }
 
+    //Targets the enemy with the highest health 
+    private void TargetEnemyMostHP()
+    {
+        if(enemiesInRange.Count < 1)
+        {
+            return;
+        }
+
+        int maxHealth = -10000;
+        foreach (GameObject enemy in enemiesInRange)
+        {
+            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().health;
+            if (currEnemyHealth > maxHealth)
+            {
+                target = enemy.transform;
+                maxHealth = currEnemyHealth;
+            }
+        }
+    }
+
+    //Targets the enemy with the lowest health
+    private void TargetEnemyLeastHP()
+    {
+        if (enemiesInRange.Count < 1)
+        {
+            return;
+        }
+
+        int minHealth = 10000;
+        foreach (GameObject enemy in enemiesInRange)
+        {
+            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().health;
+            if (currEnemyHealth < minHealth)
+            {
+                target = enemy.transform;
+                minHealth = currEnemyHealth;
+            }
+        }
+    }
     
 }
