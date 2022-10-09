@@ -35,7 +35,7 @@ public class TurretAScript : MonoBehaviour
         {
             return;
         }
-        
+
         RotateTowardsTarget();
 
         //Fires the projectile
@@ -111,6 +111,12 @@ public class TurretAScript : MonoBehaviour
             return;
         }
 
+        //checks if enemy is dead before targeting another enemy
+        if(target != null)
+        {
+            return;
+        }
+
         foreach (GameObject enemy in enemiesInRange)
         {
             float currEnemyDistance = enemy.GetComponent<EnemyDistanceTraveledScript>().getDistanceTraveled();
@@ -130,6 +136,12 @@ public class TurretAScript : MonoBehaviour
             return;
         }
 
+        //checks if enemy is dead before targeting another enemy
+        if (target != null)
+        {
+            return;
+        }
+
         target = enemiesInRange[0].transform;
     }
 
@@ -137,6 +149,12 @@ public class TurretAScript : MonoBehaviour
     private void TargetEnemyMostHP()
     {
         if(enemiesInRange.Count < 1)
+        {
+            return;
+        }
+
+        //checks if enemy is dead before targeting another enemy
+        if (target != null)
         {
             return;
         }
@@ -157,6 +175,12 @@ public class TurretAScript : MonoBehaviour
     private void TargetEnemyLeastHP()
     {
         if (enemiesInRange.Count < 1)
+        {
+            return;
+        }
+
+        //checks if enemy is dead before targeting another enemy
+        if (target != null)
         {
             return;
         }
