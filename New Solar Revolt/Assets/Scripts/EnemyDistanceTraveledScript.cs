@@ -17,8 +17,13 @@ public class EnemyDistanceTraveledScript : MonoBehaviour
 
     void Update()
     {
-        timeSinceSpawn += Time.deltaTime;
-        distanceTraveled = timeSinceSpawn * speed;
+        //For future implementation (stun effect from tower)
+        if(speed != 0)
+        {
+            timeSinceSpawn += Time.deltaTime;
+            distanceTraveled = timeSinceSpawn * speed;
+        }
+        
     }
 
     public float getDistanceTraveled()

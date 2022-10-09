@@ -36,7 +36,6 @@ public class EnemyMovementScript : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.25f)
             {
-                
                 SetNextWaypoint();
             }
         }
