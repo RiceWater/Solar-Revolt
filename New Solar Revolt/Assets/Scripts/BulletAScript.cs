@@ -18,6 +18,10 @@ public class BulletAScript : MonoBehaviour
 
     void Update()
     {
+        if(target == null)
+        {
+            Destroy(gameObject);
+        }
         TravelToTarget();
         CheckOutOfBounds();
     }

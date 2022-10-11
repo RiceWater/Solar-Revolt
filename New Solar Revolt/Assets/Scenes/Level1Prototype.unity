@@ -6457,6 +6457,7 @@ GameObject:
   - component: {fileID: 519437008}
   - component: {fileID: 519437009}
   - component: {fileID: 519437010}
+  - component: {fileID: 519437011}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -6508,6 +6509,19 @@ MonoBehaviour:
   totalWaves: 3
   spawnPoint: {fileID: 65039514}
   countdown: 2
+--- !u!114 &519437011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519437007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56829015daf077a4b9221b9c316ce2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 519420031}
 --- !u!1001 &525306198
 PrefabInstance:
   m_ObjectHideFlags: 0
