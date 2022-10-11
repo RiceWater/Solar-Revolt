@@ -5,28 +5,29 @@ using UnityEngine;
 
 public class TowerOptionsScript : MonoBehaviour
 {
-    [SerializeField] private GameObject towerOptions;
     private RaycastHit2D[] rc;
-    private GameObject selectedTower;
 
     private void OnMouseUpAsButton()
     {
         rc = MouseRayCastScript.rc;
         if (rc.Length > 1)
         {
-            Debug.Log(rc.Length);
             for (int i = 0; i < rc.Length; i++)
             {
                 if (rc[i].collider is BoxCollider2D && rc[i].transform.CompareTag("Tower"))
                 {
-                    if(rc[i].collider.transform.root.gameObject == transform.gameObject)
+                    Transform boxColliderTransform = rc[i].collider.transform;
+                    //Traverse from the parent to the needed child object
+                    for(int j = 0; j < boxColliderTransform.childCount; j++)
                     {
-                        Debug.Log("RIGHT PARENT");
-                        towerOptions.SetActive(!towerOptions.activeSelf);
-                        selectedTower = towerOptions.transform.root.gameObject;
-                        Debug.Log(selectedTower.name);
-                    }
-                    
+                        //Ensures that tower under mouse will be interacted and not some other tower 
+                        //whose collider overlaps with the tower
+                        if(boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
+                        {
+                            Transform towerOptionsTransform = boxColliderTransform.GetChild(j);
+                            towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+                        }
+                    }                    
                 }
 
                 if (rc[i].collider.transform.CompareTag("Upgrade"))
