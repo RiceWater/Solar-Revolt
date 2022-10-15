@@ -32,6 +32,7 @@ public class BulletAScript : MonoBehaviour
         {
             if (collision.gameObject.Equals(target))
             {
+                target.GetComponent<EnemyAttributesScript>().EnemyHealth--; //replace with tower damage (Wood's Code Needed)
                 Destroy(gameObject);
             }
             else

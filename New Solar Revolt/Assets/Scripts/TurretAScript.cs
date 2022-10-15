@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class TurretAScript : MonoBehaviour
 {
+    [SerializeField] private int gariumCost;
     private Transform target;  
 
     //For direction;
     public Transform directionObject;
 
     //Bullet-related
-    public float fireRate = 1f;
-    private float fireCountdown = 0f;
+    public float fireRate;
+    private float fireCountdown;
 
     //Bullet Prefabs-related
     public GameObject pfBulletA;
@@ -26,6 +27,9 @@ public class TurretAScript : MonoBehaviour
     {
         //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
+        fireRate = 1f;
+        fireCountdown = 0f;
+        gariumCost = 20;
     }
 
     private void Update()
@@ -46,6 +50,12 @@ public class TurretAScript : MonoBehaviour
         }
         fireCountdown -= Time.deltaTime;
 
+    }
+
+    public int GariumCost
+    {
+        get { return gariumCost; }
+        set { gariumCost = value; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -162,7 +172,7 @@ public class TurretAScript : MonoBehaviour
         int maxHealth = -10000;
         foreach (GameObject enemy in enemiesInRange)
         {
-            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().health;
+            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth > maxHealth)
             {
                 target = enemy.transform;
@@ -188,7 +198,7 @@ public class TurretAScript : MonoBehaviour
         int minHealth = 10000;
         foreach (GameObject enemy in enemiesInRange)
         {
-            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().health;
+            int currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth < minHealth)
             {
                 target = enemy.transform;

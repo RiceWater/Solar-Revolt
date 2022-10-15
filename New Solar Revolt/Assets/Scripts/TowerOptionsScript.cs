@@ -29,27 +29,40 @@ public class TowerOptionsScript : MonoBehaviour
                         }
                     }                    
                 }
-
+                
                 if (rc[i].collider.transform.CompareTag("Upgrade"))
                 {
-                    Debug.Log("UPGRAADE");
-                    CircleCollider2D towerRadius = rc[i].collider.transform.root.GetComponent<CircleCollider2D>();
-                    towerRadius.radius += 5;
-                    GariumScript.Garium -= 5;
-                    //add damage
-                    //increase firerate(?)
-                    //decrease garium
+                    UpgradeTower(rc[i]);
                 }
-                else if (rc[i].collider.transform.CompareTag("Sell")){
-                    Debug.Log("SELLL");
-                    
-                    //Destroy Object and add GARIUUUUM
+                else if (rc[i].collider.transform.CompareTag("Sell"))
+                {
+                    SellTower(rc[i]);
                 }
             }
         }
-
     }
 
-    
-    
+    private void UpgradeTower(RaycastHit2D rc)
+    {
+        CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
+        int gariumCost = towerRadius.transform.GetComponent<TurretAScript>().GariumCost;
+        if (GariumScript.Garium < gariumCost) { return; }
+
+        towerRadius.radius += 5;
+        GariumScript.Garium -= gariumCost;
+        towerRadius.transform.GetComponent<TurretAScript>().GariumCost += 30;
+
+        //add damage (need Wood's Code)
+        //increase firerate(?)
+    }
+
+    private void SellTower(RaycastHit2D rc)
+    {
+        CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
+        GariumScript.Garium += (towerRadius.transform.GetComponent<TurretAScript>().GariumCost / 3);
+        Destroy(gameObject);
+    }
+
+
+
 }

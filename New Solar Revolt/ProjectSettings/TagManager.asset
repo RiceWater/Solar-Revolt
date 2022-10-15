@@ -8,6 +8,7 @@ TagManager:
   - Tower
   - Upgrade
   - Sell
+  - Projectile
   layers:
   - Default
   - TransparentFX
