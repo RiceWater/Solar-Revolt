@@ -9,6 +9,9 @@ TagManager:
   - Upgrade
   - Sell
   - Projectile
+  - Tower Slot
+  - Build
+  - Test
   layers:
   - Default
   - TransparentFX

@@ -25,7 +25,6 @@ public class TurretAScript : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
         fireRate = 1f;
         fireCountdown = 0f;
