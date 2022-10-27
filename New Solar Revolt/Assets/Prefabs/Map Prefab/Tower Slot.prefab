@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 347699583}
   m_Layer: 0
   m_Name: Tower A
-  m_TagString: Build
+  m_TagString: Slot Option
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.2462086, g: 0.4419868, b: 0.5283019, a: 1}
   m_FlipX: 0
@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 5157784271442717176}
   - component: {fileID: 2476522990681511977}
   - component: {fileID: 34891962}
+  - component: {fileID: 5061063451691754637}
   m_Layer: 0
   m_Name: Tower Slot
   m_TagString: Tower Slot
@@ -200,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48846380d31263e45906725102722726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerPrefabs:
+  - {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
 --- !u!61 &34891962
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +213,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -226,6 +229,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &5061063451691754637
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5157784271442717177}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 7
 --- !u!1 &6296028176568206445
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +263,7 @@ GameObject:
   - component: {fileID: 1717787796}
   m_Layer: 0
   m_Name: Tower C
-  m_TagString: Build
+  m_TagString: Slot Option
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -299,7 +323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.2462086, g: 0.4419868, b: 0.5283019, a: 1}
   m_FlipX: 0
@@ -338,7 +362,7 @@ GameObject:
   - component: {fileID: 3498353892290783333}
   m_Layer: 0
   m_Name: Slot Options
-  m_TagString: Untagged
+  m_TagString: Slot Options
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -375,7 +399,7 @@ GameObject:
   - component: {fileID: 1779691599}
   m_Layer: 0
   m_Name: Tower B
-  m_TagString: Build
+  m_TagString: Slot Option
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,7 +459,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.2462086, g: 0.4419868, b: 0.5283019, a: 1}
   m_FlipX: 0
@@ -476,7 +500,7 @@ GameObject:
   - component: {fileID: 1379268013}
   m_Layer: 0
   m_Name: Tower D
-  m_TagString: Build
+  m_TagString: Slot Option
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,7 +560,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.2462086, g: 0.4419868, b: 0.5283019, a: 1}
   m_FlipX: 0

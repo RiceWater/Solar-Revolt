@@ -150,7 +150,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4619e75049fe9449a0142629c35786, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gariumCost: 0
   directionObject: {fileID: 1508908102099296520}
   fireRate: 1
   pfBulletA: {fileID: 200645615588126804, guid: d5ec39336ea241546aee2e3c29090d5f, type: 3}
@@ -217,7 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f1cf709c5cb154cb1f535402b181ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerOptions: {fileID: 6122865469739058852}
 --- !u!1 &1508908103272588388
 GameObject:
   m_ObjectHideFlags: 0

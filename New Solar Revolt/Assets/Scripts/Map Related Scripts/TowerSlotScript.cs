@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class TowerSlotScript : MonoBehaviour
 {
+    [SerializeField] private GameObject[] towerPrefabs;
     private RaycastHit2D[] rc;
+    private GameObject currTower;
+    private Transform towerSlotTransform;
 
+    private void Start()
+    {
+        currTower = null;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), collision.collider);
+    }
     private void OnMouseUpAsButton()
     {
         rc = MouseRayCastScript.rc;
         Debug.Log(rc.Length);
-        if (rc.Length > 1)
+        if (rc.Length >= 1)
         {
             for (int i = 0; i < rc.Length; i++)
             {
-                if (rc[i].collider is BoxCollider2D && rc[i].transform.CompareTag("Tower Slot"))
+                if (rc[i].collider is BoxCollider2D && rc[i].transform.CompareTag("Tower Slot") && currTower == null)
                 {
                     Transform boxColliderTransform = rc[i].collider.transform;
                     //Traverse from the parent to the needed child object
@@ -22,37 +38,50 @@ public class TowerSlotScript : MonoBehaviour
                     {
                         //Ensures that tower under mouse will be interacted and not some other tower 
                         //whose collider overlaps with the tower
-                        if (boxColliderTransform.GetChild(j).name.Equals("Slot Options"))
+                        if (boxColliderTransform.GetChild(j).CompareTag("Slot Options"))
                         {    
-                            Transform towerSlotTransform = boxColliderTransform.GetChild(j);
+                            //Transform
+                            towerSlotTransform = boxColliderTransform.GetChild(j);
                             towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
                         }
                     }
                 }
-                if (rc[i].collider.transform.CompareTag("Test"))
+                if (rc[i].collider.transform.CompareTag("Slot Option"))
                 {
                     string towerName = rc[i].collider.transform.name;
-                    switch (towerName)
-                    {
-                        case "Tower A":
-                            Debug.Log("A");
-                            break;
-                        case "Tower B":
-                            Debug.Log("B");
-                            break;
-                        case "Tower C":
-                            Debug.Log("C");
-                            break;
-                        case "Tower D":
-                            Debug.Log("D");
-                            break;
-                        default:
-                            Debug.Log("Out of choices");
-                            break;
-                    }
+                    SpawnTower(towerName);
+                    towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
+
                 }
             }
         }
 
+    }
+
+    private void SpawnTower(string towerOptionName)
+    {
+
+        switch (towerOptionName)
+        {
+            case "Tower A":
+                currTower = Instantiate(towerPrefabs[0]);
+                currTower.transform.position = transform.position;
+                //Update player's garium
+                break;
+            case "Tower B":
+                Debug.Log("B");
+                //Update player's garium
+                break;
+            case "Tower C":
+                Debug.Log("C");
+                //Update player's garium
+                break;
+            case "Tower D":
+                Debug.Log("D");
+                //Update player's garium
+                break;
+            default:
+                break;
+        }
     }
 }

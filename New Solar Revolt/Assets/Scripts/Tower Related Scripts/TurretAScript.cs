@@ -72,7 +72,6 @@ public class TurretAScript : MonoBehaviour
             enemiesInRange.Remove(collision.gameObject);
         }
     }
-
     private void RotateTowardsTarget()
     {
         var offset = 0f;

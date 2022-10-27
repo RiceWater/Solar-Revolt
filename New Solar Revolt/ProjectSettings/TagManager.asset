@@ -10,8 +10,8 @@ TagManager:
   - Sell
   - Projectile
   - Tower Slot
-  - Build
-  - Test
+  - Slot Option
+  - Slot Options
   layers:
   - Default
   - TransparentFX

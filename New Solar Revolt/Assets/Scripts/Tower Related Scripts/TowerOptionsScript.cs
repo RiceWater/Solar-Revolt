@@ -7,6 +7,16 @@ public class TowerOptionsScript : MonoBehaviour
 {
     private RaycastHit2D[] rc;
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), collision);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), collision.collider);
+    }
+
     private void OnMouseUpAsButton()
     {
         rc = MouseRayCastScript.rc;
