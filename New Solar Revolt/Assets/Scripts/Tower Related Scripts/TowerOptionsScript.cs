@@ -5,7 +5,23 @@ using UnityEngine;
 
 public class TowerOptionsScript : MonoBehaviour
 {
+    [SerializeField] private GameObject towerRangeDisplay;
     private RaycastHit2D[] rc;
+    private Transform towerOptionsTransform;
+    private Transform newTowerRangeDisplay;
+
+    private void Start()
+    {
+        Color spriteColor = towerRangeDisplay.GetComponent<SpriteRenderer>().material.color;
+        towerRangeDisplay.GetComponent<SpriteRenderer>().material.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0.5f);
+        towerRangeDisplay.SetActive(false);
+    }
+
+    private void Update()
+    {
+        Vector3 towerRadius = new Vector3(transform.GetComponent<CircleCollider2D>().radius, transform.GetComponent<CircleCollider2D>().radius, 1);
+        towerRangeDisplay.transform.localScale = towerRadius * 2;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,10 +48,15 @@ public class TowerOptionsScript : MonoBehaviour
                     {
                         //Ensures that tower under mouse will be interacted and not some other tower 
                         //whose collider overlaps with the tower
-                        if(boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
+                        if (boxColliderTransform.GetChild(j).name.Equals("Tower Range Display"))
                         {
-                            Transform towerOptionsTransform = boxColliderTransform.GetChild(j);
+                            newTowerRangeDisplay = boxColliderTransform.GetChild(j);
+                        }
+                        else if(boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
+                        {
+                            towerOptionsTransform = boxColliderTransform.GetChild(j);
                             towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+                            newTowerRangeDisplay.gameObject.SetActive(!newTowerRangeDisplay.gameObject.activeSelf);
                         }
                     }                    
                 }
@@ -43,10 +64,14 @@ public class TowerOptionsScript : MonoBehaviour
                 if (rc[i].collider.transform.CompareTag("Upgrade"))
                 {
                     UpgradeTower(rc[i]);
+                    towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+                    //towerRangeDisplay.SetActive(!towerRangeDisplay.activeSelf);
+                    newTowerRangeDisplay.gameObject.SetActive(!newTowerRangeDisplay.gameObject.activeSelf);
                 }
                 else if (rc[i].collider.transform.CompareTag("Sell"))
                 {
                     SellTower(rc[i]);
+                    
                 }
             }
         }

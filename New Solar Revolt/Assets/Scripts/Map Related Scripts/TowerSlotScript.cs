@@ -13,6 +13,14 @@ public class TowerSlotScript : MonoBehaviour
     {
         currTower = null;
     }
+
+    private void Update()
+    {
+        if (!currTower) //to prevent uninteractivity of mouse and tower slot
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, -2);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), collision);
@@ -51,7 +59,6 @@ public class TowerSlotScript : MonoBehaviour
                     string towerName = rc[i].collider.transform.name;
                     SpawnTower(towerName);
                     towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
-
                 }
             }
         }
@@ -64,9 +71,14 @@ public class TowerSlotScript : MonoBehaviour
         switch (towerOptionName)
         {
             case "Tower A":
+                if(GariumScript.Garium < 30)
+                {
+                    return;
+                }
+                GariumScript.Garium -= 30;
                 currTower = Instantiate(towerPrefabs[0]);
-                currTower.transform.position = transform.position;
-                //Update player's garium
+                currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             case "Tower B":
                 Debug.Log("B");
