@@ -7,8 +7,7 @@ public class TowerOptionsScript : MonoBehaviour
 {
     [SerializeField] private GameObject towerRangeDisplay;
     private RaycastHit2D[] rc;
-    private Transform towerOptionsTransform;
-    private Transform newTowerRangeDisplay;
+    private Transform TowerRangeDisplay;
 
     private void Start()
     {
@@ -44,35 +43,34 @@ public class TowerOptionsScript : MonoBehaviour
                 {
                     Transform boxColliderTransform = rc[i].collider.transform;
                     //Traverse from the parent to the needed child object
-                    for(int j = 0; j < boxColliderTransform.childCount; j++)
+                    for (int j = 0; j < boxColliderTransform.childCount; j++)
                     {
                         //Ensures that tower under mouse will be interacted and not some other tower 
                         //whose collider overlaps with the tower
                         if (boxColliderTransform.GetChild(j).name.Equals("Tower Range Display"))
                         {
-                            newTowerRangeDisplay = boxColliderTransform.GetChild(j);
+                            TowerRangeDisplay = boxColliderTransform.GetChild(j);
                         }
-                        else if(boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
+                        else if (boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
                         {
-                            towerOptionsTransform = boxColliderTransform.GetChild(j);
+                            Transform towerOptionsTransform= boxColliderTransform.GetChild(j);
                             towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
-                            newTowerRangeDisplay.gameObject.SetActive(!newTowerRangeDisplay.gameObject.activeSelf);
+                            TowerRangeDisplay.gameObject.SetActive(!TowerRangeDisplay.gameObject.activeSelf);
                         }
-                    }                    
+                    }
+
                 }
-                
+
                 if (rc[i].collider.transform.CompareTag("Upgrade"))
                 {
                     UpgradeTower(rc[i]);
-                    towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
-                    //towerRangeDisplay.SetActive(!towerRangeDisplay.activeSelf);
-                    newTowerRangeDisplay.gameObject.SetActive(!newTowerRangeDisplay.gameObject.activeSelf);
+                    CloseTowerOptionsAndRangeDisplay(rc[i]);
                 }
                 else if (rc[i].collider.transform.CompareTag("Sell"))
                 {
                     SellTower(rc[i]);
-                    
                 }
+                
             }
         }
     }
@@ -98,6 +96,14 @@ public class TowerOptionsScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    //Retrieve the transform/objects again to avoid closing the wrong gameobjects
+    //Currently the best solution to fix the closing tower menu bug
+    private void CloseTowerOptionsAndRangeDisplay(RaycastHit2D rc)
+    {
+        Transform towerOptionsTransform = rc.collider.transform.parent;
+        towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+        Transform currentTowerRangeDisplay = rc.collider.transform.root.Find("Tower Range Display");
+        currentTowerRangeDisplay.gameObject.SetActive(!currentTowerRangeDisplay.gameObject.activeSelf);
+    }
 
 }
