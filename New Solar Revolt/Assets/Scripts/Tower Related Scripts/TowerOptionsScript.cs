@@ -51,10 +51,12 @@ public class TowerOptionsScript : MonoBehaviour
                         {
                             TowerRangeDisplay = boxColliderTransform.GetChild(j);
                         }
-                        else if (boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
+                        else
+                        if (boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
                         {
                             Transform towerOptionsTransform= boxColliderTransform.GetChild(j);
                             towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+                            //towerRangeDisplay.gameObject.SetActive(!towerRangeDisplay.gameObject.activeSelf);
                             TowerRangeDisplay.gameObject.SetActive(!TowerRangeDisplay.gameObject.activeSelf);
                         }
                     }
