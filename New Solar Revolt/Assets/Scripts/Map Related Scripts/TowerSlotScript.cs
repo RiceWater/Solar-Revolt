@@ -58,6 +58,7 @@ public class TowerSlotScript : MonoBehaviour
                 {
                     string towerName = rc[i].collider.transform.name;
                     SpawnTower(towerName);
+                    towerSlotTransform = rc[i].collider.transform.parent;
                     towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
                 }
             }
@@ -79,6 +80,7 @@ public class TowerSlotScript : MonoBehaviour
                 currTower = Instantiate(towerPrefabs[0]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+                
                 break;
             case "Tower B":
                 Debug.Log("B");
@@ -95,5 +97,6 @@ public class TowerSlotScript : MonoBehaviour
             default:
                 break;
         }
+        
     }
 }

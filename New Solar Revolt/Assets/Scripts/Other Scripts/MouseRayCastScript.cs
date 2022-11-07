@@ -16,7 +16,7 @@ public class MouseRayCastScript : MonoBehaviour
     private void Update()
     {
         Vector2 origin = new Vector2(camera.ScreenToWorldPoint(Input.mousePosition).x, camera.ScreenToWorldPoint(Input.mousePosition).y);
-        rc = Physics2D.RaycastAll(origin, Vector2.zero, 10);
+        rc = Physics2D.RaycastAll(origin, Vector2.zero, 0);
       
         
     }
