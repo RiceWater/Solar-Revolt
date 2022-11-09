@@ -7,7 +7,7 @@ public class EnemyAttributesScript : MonoBehaviour
     //Values are serialized so one script can be applied to 3 different enemies
     //SeralizedField makes you input values in the inspector
     [SerializeField] private int enemyGarium;
-    [SerializeField] private int enemyHealth;
+    [SerializeField] private float enemyHealth;
 
 
     private void Update()
@@ -21,7 +21,7 @@ public class EnemyAttributesScript : MonoBehaviour
         set { enemyGarium = value; }
     }
 
-    public int EnemyHealth
+    public float EnemyHealth
     {
         get { return enemyHealth; }
         set { enemyHealth = value; }
@@ -33,6 +33,15 @@ public class EnemyAttributesScript : MonoBehaviour
         {
             Destroy(gameObject);
             GariumScript.Garium += enemyGarium;
+        }
+    }
+    public void TakeDamage(float damageAmount)
+    {
+        enemyHealth -= damageAmount;
+
+        if (enemyHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
