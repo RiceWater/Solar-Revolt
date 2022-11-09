@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefabs:
   - {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
+  towerSlotOptionsPF: {fileID: 7723871985426216671}
 --- !u!61 &34891962
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -5,21 +5,22 @@ using UnityEngine;
 
 public class TowerOptionsScript : MonoBehaviour
 {
-    [SerializeField] private GameObject towerRangeDisplay;
+    [SerializeField] private GameObject towerRangeDisplayPF;
+    [SerializeField] private GameObject towerOptionsMenuPF;
     private RaycastHit2D[] rc;
-    private Transform TowerRangeDisplay;
+    private Transform towerRangeDisplayTransform;
 
     private void Start()
     {
-        Color spriteColor = towerRangeDisplay.GetComponent<SpriteRenderer>().material.color;
-        towerRangeDisplay.GetComponent<SpriteRenderer>().material.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0.5f);
-        towerRangeDisplay.SetActive(false);
+        Color spriteColor = towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color;
+        towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0.5f);
+        towerRangeDisplayPF.SetActive(false);
     }
 
     private void Update()
     {
         Vector3 towerRadius = new Vector3(transform.GetComponent<CircleCollider2D>().radius, transform.GetComponent<CircleCollider2D>().radius, 1);
-        towerRangeDisplay.transform.localScale = towerRadius * 2;
+        towerRangeDisplayPF.transform.localScale = towerRadius * 2;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -49,14 +50,15 @@ public class TowerOptionsScript : MonoBehaviour
                         //whose collider overlaps with the tower
                         if (boxColliderTransform.GetChild(j).name.Equals("Tower Range Display"))
                         {
-                            TowerRangeDisplay = boxColliderTransform.GetChild(j);
+                            towerRangeDisplayTransform = boxColliderTransform.GetChild(j);
                         }
+                        //technically, the mouse still clicks the tower, which closes/opens the tower option of the unintended tower
                         else if (boxColliderTransform.GetChild(j).name.Equals("TowerOptions"))
                         {
+                            
                             Transform towerOptionsTransform= boxColliderTransform.GetChild(j);
                             towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
-                            //towerRangeDisplay.gameObject.SetActive(!towerRangeDisplay.gameObject.activeSelf);
-                            TowerRangeDisplay.gameObject.SetActive(!TowerRangeDisplay.gameObject.activeSelf);
+                            towerRangeDisplayTransform.gameObject.SetActive(!towerRangeDisplayTransform.gameObject.activeSelf);
                         }
                     }
 
@@ -101,10 +103,21 @@ public class TowerOptionsScript : MonoBehaviour
     //Currently the best solution to fix the closing tower menu bug
     private void CloseTowerOptionsAndRangeDisplay(RaycastHit2D rc)
     {
+        /*
         Transform towerOptionsTransform = rc.collider.transform.parent;
         towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
         Transform currentTowerRangeDisplay = rc.collider.transform.root.Find("Tower Range Display");
         currentTowerRangeDisplay.gameObject.SetActive(!currentTowerRangeDisplay.gameObject.activeSelf);
+        */
+        Transform towerOptionsTransform = rc.collider.transform.parent;
+        Transform currentTowerRangeDisplay = rc.collider.transform.root.Find("Tower Range Display");
+        if(towerOptionsTransform.parent.GetInstanceID().Equals(towerOptionsMenuPF.transform.parent.GetInstanceID()) 
+            && currentTowerRangeDisplay.parent.GetInstanceID().Equals(towerRangeDisplayPF.transform.parent.GetInstanceID()))
+        {
+            Debug.LogError("ASD");
+            towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
+            currentTowerRangeDisplay.gameObject.SetActive(!currentTowerRangeDisplay.gameObject.activeSelf);
+        }
     }
 
 }

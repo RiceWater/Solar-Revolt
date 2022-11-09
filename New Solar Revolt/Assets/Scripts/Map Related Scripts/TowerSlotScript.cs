@@ -46,11 +46,15 @@ public class TowerSlotScript : MonoBehaviour
                     {
                         //Ensures that tower under mouse will be interacted and not some other tower 
                         //whose collider overlaps with the tower
-                        if (boxColliderTransform.GetChild(j).CompareTag("Slot Options"))
-                        {    
+                        if (boxColliderTransform.GetChild(j).CompareTag("Slot Options") && currTower == null)
+                        {
                             //Transform
                             towerSlotTransform = boxColliderTransform.GetChild(j);
-                            towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
+                            if (towerSlotTransform.transform.parent.GetInstanceID().Equals(transform.GetInstanceID())) 
+                            { 
+                                towerSlotTransform.gameObject.SetActive(!towerSlotTransform.gameObject.activeSelf);
+                            }
+                            
                         }
                     }
                 }
@@ -68,7 +72,6 @@ public class TowerSlotScript : MonoBehaviour
 
     private void SpawnTower(string towerOptionName)
     {
-
         switch (towerOptionName)
         {
             case "Tower A":
@@ -80,7 +83,6 @@ public class TowerSlotScript : MonoBehaviour
                 currTower = Instantiate(towerPrefabs[0]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-                
                 break;
             case "Tower B":
                 Debug.Log("B");
