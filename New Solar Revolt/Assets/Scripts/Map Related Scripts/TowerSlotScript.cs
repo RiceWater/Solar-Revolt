@@ -33,7 +33,6 @@ public class TowerSlotScript : MonoBehaviour
     private void OnMouseUpAsButton()
     {
         rc = MouseRayCastScript.rc;
-        Debug.Log(rc.Length);
         if (rc.Length >= 1)
         {
             for (int i = 0; i < rc.Length; i++)

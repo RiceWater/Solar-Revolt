@@ -6,7 +6,6 @@ using UnityEngine;
 public class TowerOptionsScript : MonoBehaviour
 {
     [SerializeField] private GameObject towerRangeDisplayPF;
-    [SerializeField] private GameObject towerOptionsMenuPF;
     private RaycastHit2D[] rc;
     private Transform towerRangeDisplayTransform;
 
@@ -61,7 +60,6 @@ public class TowerOptionsScript : MonoBehaviour
                             towerRangeDisplayTransform.gameObject.SetActive(!towerRangeDisplayTransform.gameObject.activeSelf);
                         }
                     }
-
                 }
 
                 if (rc[i].collider.transform.CompareTag("Upgrade"))
@@ -76,7 +74,7 @@ public class TowerOptionsScript : MonoBehaviour
                 
             }
         }
-    }
+    } 
 
     private void UpgradeTower(RaycastHit2D rc)
     {
@@ -103,18 +101,11 @@ public class TowerOptionsScript : MonoBehaviour
     //Currently the best solution to fix the closing tower menu bug
     private void CloseTowerOptionsAndRangeDisplay(RaycastHit2D rc)
     {
-        /*
-        Transform towerOptionsTransform = rc.collider.transform.parent;
-        towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
-        Transform currentTowerRangeDisplay = rc.collider.transform.root.Find("Tower Range Display");
-        currentTowerRangeDisplay.gameObject.SetActive(!currentTowerRangeDisplay.gameObject.activeSelf);
-        */
         Transform towerOptionsTransform = rc.collider.transform.parent;
         Transform currentTowerRangeDisplay = rc.collider.transform.root.Find("Tower Range Display");
-        if(towerOptionsTransform.parent.GetInstanceID().Equals(towerOptionsMenuPF.transform.parent.GetInstanceID()) 
-            && currentTowerRangeDisplay.parent.GetInstanceID().Equals(towerRangeDisplayPF.transform.parent.GetInstanceID()))
+        if (towerOptionsTransform.parent.GetInstanceID().Equals(transform.GetInstanceID())
+            && currentTowerRangeDisplay.parent.GetInstanceID().Equals(transform.GetInstanceID()))
         {
-            Debug.LogError("ASD");
             towerOptionsTransform.gameObject.SetActive(!towerOptionsTransform.gameObject.activeSelf);
             currentTowerRangeDisplay.gameObject.SetActive(!currentTowerRangeDisplay.gameObject.activeSelf);
         }
