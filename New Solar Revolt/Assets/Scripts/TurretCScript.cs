@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretAScript : MonoBehaviour
+public class TurretCScript : MonoBehaviour
 {
     [SerializeField] private int gariumCost;
     private Transform target;  
@@ -15,8 +15,8 @@ public class TurretAScript : MonoBehaviour
     private float fireCountdown;
 
     //Bullet Prefabs-related
-    public GameObject pfBulletA;
-    public Transform spawnLocationBulletA;
+    public GameObject pfBulletC;
+    public Transform spawnLocationBulletC;
 
     [SerializeField] private List<GameObject> enemiesInRange = new List<GameObject>();
 
@@ -85,8 +85,8 @@ public class TurretAScript : MonoBehaviour
 
     private void FireProjectile()
     {
-        GameObject bullet = Instantiate(pfBulletA, spawnLocationBulletA.position, spawnLocationBulletA.rotation);
-        bullet.GetComponent<BulletAScript>().SetTarget(target.gameObject);   
+        GameObject bullet = Instantiate(pfBulletC, spawnLocationBulletC.position, spawnLocationBulletC.rotation);
+        bullet.GetComponent<BulletCScript>().SetTarget(target.gameObject);   
     }
 
     private void SetTargetPriority()
