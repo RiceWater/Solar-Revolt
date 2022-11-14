@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletAScript : MonoBehaviour
+public class BulletCScript : MonoBehaviour
 {
     private GameObject target;
     private Rigidbody2D bulletRigidBody;
@@ -32,7 +32,7 @@ public class BulletAScript : MonoBehaviour
         {
             if (collision.gameObject.Equals(target))
             {
-                target.GetComponent<EnemyAttributesScript>().TakeDamage(1); //replace with tower damage (Wood's Code Needed)
+                target.GetComponent<EnemyAttributesScript>().TakeDamage(4); //replace with tower damage (Wood's Code Needed)
                 Destroy(gameObject);
             }
             else
