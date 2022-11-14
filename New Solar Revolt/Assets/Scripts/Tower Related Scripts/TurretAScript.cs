@@ -25,7 +25,6 @@ public class TurretAScript : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
         fireRate = 1f;
         fireCountdown = 0f;
@@ -73,7 +72,6 @@ public class TurretAScript : MonoBehaviour
             enemiesInRange.Remove(collision.gameObject);
         }
     }
-
     private void RotateTowardsTarget()
     {
         var offset = 0f;
