@@ -9,9 +9,6 @@ TagManager:
   - Upgrade
   - Sell
   - Projectile
-  - Tower Slot
-  - Slot Option
-  - Slot Options
   layers:
   - Default
   - TransparentFX

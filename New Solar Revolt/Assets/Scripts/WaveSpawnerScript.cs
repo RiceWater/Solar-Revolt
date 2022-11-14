@@ -25,8 +25,15 @@ public class WaveSpawnerScript : MonoBehaviour
         if(totalWaves > 0)
         {
             totalWaves--;
+            Debug.Log("WAVE INCOMING");
+            //SpawnEnemy();
             StartCoroutine(TestSpawn());
         }
+        else
+        {
+            Debug.Log("NO MORE WAVES REMAINING"); 
+        }
+
     }
 
     private void SpawnEnemy()
