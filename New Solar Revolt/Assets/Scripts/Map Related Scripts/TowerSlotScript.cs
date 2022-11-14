@@ -84,8 +84,16 @@ public class TowerSlotScript : MonoBehaviour
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             case "Tower B":
-                Debug.Log("B");
+                if (GariumScript.Garium < 40)
+                {
+                    return;
+                }
+                GariumScript.Garium -= 40;
+                currTower = Instantiate(towerPrefabs[1]);
+                currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 //Update player's garium
+
                 break;
             case "Tower C":
                 Debug.Log("C");

@@ -79,12 +79,37 @@ public class TowerOptionsScript : MonoBehaviour
     private void UpgradeTower(RaycastHit2D rc)
     {
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
-        int gariumCost = towerRadius.transform.GetComponent<TurretAScript>().GariumCost;
+        int gariumCost = 0;
+        if (towerRadius.transform.GetComponent<TurretAScript>() != null)
+        {
+            gariumCost = towerRadius.transform.GetComponent<TurretAScript>().GariumCost;
+        }
+        else if(towerRadius.transform.GetComponent<TurretBScript>() != null)
+        {
+            gariumCost = towerRadius.transform.GetComponent<TurretBScript>().GariumCost;
+        }
+        else if(towerRadius.transform.GetComponent<TurretCScript>() != null)
+        {
+            gariumCost = towerRadius.transform.GetComponent<TurretCScript>().GariumCost;
+        }
+
         if (GariumScript.Garium < gariumCost) { return; }
 
         towerRadius.radius += 5;
         GariumScript.Garium -= gariumCost;
-        towerRadius.transform.GetComponent<TurretAScript>().GariumCost += 30;
+        
+        if (towerRadius.transform.GetComponent<TurretAScript>() != null)
+        {
+            towerRadius.transform.GetComponent<TurretAScript>().GariumCost += 30;
+        }
+        else if (towerRadius.transform.GetComponent<TurretBScript>() != null)
+        {
+            towerRadius.transform.GetComponent<TurretBScript>().GariumCost += 30;
+        }
+        else if (towerRadius.transform.GetComponent<TurretCScript>() != null)
+        {
+            towerRadius.transform.GetComponent<TurretCScript>().GariumCost += 30;
+        }
 
         //add damage (need Wood's Code)
         //increase firerate(?)
