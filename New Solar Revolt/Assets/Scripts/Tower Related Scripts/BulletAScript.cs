@@ -21,6 +21,7 @@ public class BulletAScript : MonoBehaviour
         if(target == null)
         {
             Destroy(gameObject);
+            return;
         }
         TravelToTarget();
         CheckOutOfBounds();
