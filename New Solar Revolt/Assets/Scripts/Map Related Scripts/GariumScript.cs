@@ -9,13 +9,14 @@ public class GariumScript : MonoBehaviour
 
     void Start()
     {
-        garium = 0;
+        garium = 100;
         second = 0;
     }
 
     
     void Update()
     {
+        Debug.LogWarning(garium);
         second += Time.deltaTime;
         IncrementGarium();
         ValueProofGarium();
