@@ -23,6 +23,7 @@ public class BulletBScript : MonoBehaviour
         if(target == null)
         {
             Destroy(gameObject);
+            return;
         }
         TravelToTarget();
         CheckOutOfBounds();
@@ -37,6 +38,7 @@ public class BulletBScript : MonoBehaviour
                 var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRange);
                 foreach(var hitCollider in hitColliders)
                 {
+                    Debug.Log(hitCollider.gameObject.name);
                     var enemy = hitCollider.GetComponent<EnemyAttributesScript>();
                     if (enemy)
                     {

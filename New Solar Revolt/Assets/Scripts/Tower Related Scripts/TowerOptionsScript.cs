@@ -118,7 +118,18 @@ public class TowerOptionsScript : MonoBehaviour
     private void SellTower(RaycastHit2D rc)
     {
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
-        GariumScript.Garium += (towerRadius.transform.GetComponent<TurretAScript>().GariumCost / 3);
+        if (towerRadius.transform.GetComponent<TurretAScript>() != null)
+        {
+            GariumScript.Garium += (towerRadius.transform.GetComponent<TurretAScript>().GariumCost / 3);
+        }
+        else if (towerRadius.transform.GetComponent<TurretBScript>() != null)
+        {
+            GariumScript.Garium += (towerRadius.transform.GetComponent<TurretBScript>().GariumCost / 3);
+        }
+        else if (towerRadius.transform.GetComponent<TurretCScript>() != null)
+        {
+            GariumScript.Garium += (towerRadius.transform.GetComponent<TurretCScript>().GariumCost / 3);
+        }
         Destroy(gameObject);
     }
 
