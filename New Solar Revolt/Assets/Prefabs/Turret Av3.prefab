@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gariumCost: 0
+  target: {fileID: 6801539067739666662, guid: 5758c8ef83d021c40a38968b0b536ae2, type: 3}
   directionObject: {fileID: 1508908102099296520}
   fireRate: 0
   pfBulletC: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}

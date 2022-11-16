@@ -27,7 +27,7 @@ public class TurretCScript : MonoBehaviour
     {
         //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
-        fireRate = 1f;
+        fireRate = 0.5f;
         fireCountdown = 0f;
         gariumCost = 20;
     }
@@ -115,14 +115,14 @@ public class TurretCScript : MonoBehaviour
     private void TargetEnemyNearGoal()
     {
         float highestDistance = -1f;
-        if(enemiesInRange.Count == 0)
+        if (enemiesInRange.Count == 0)
         {
             target = null;
             return;
         }
 
         //checks if enemy is dead before targeting another enemy
-        if(target != null)
+        if (target != null)
         {
             return;
         }
@@ -206,5 +206,4 @@ public class TurretCScript : MonoBehaviour
             }
         }
     }
-    
 }
