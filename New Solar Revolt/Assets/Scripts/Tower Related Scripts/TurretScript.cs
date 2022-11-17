@@ -18,7 +18,6 @@ public class TurretScript : MonoBehaviour
     [Header("Required Prefabs")]
     [SerializeField] private GameObject bulletPrefab;
     
-
     private List<GameObject> enemiesInRange = new List<GameObject>();
 
     //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
@@ -26,11 +25,8 @@ public class TurretScript : MonoBehaviour
 
     private void Start()
     {
-        //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
-        //fireRate = 1f;
         fireCountdown = 0f;
-        //gariumCost = 20;
     }
 
     private void Update()

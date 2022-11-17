@@ -71,28 +71,30 @@ public class TowerSlotScript : MonoBehaviour
 
     private void SpawnTower(string towerOptionName)
     {
+        int towerCost;
         switch (towerOptionName)
         {
             case "Tower A":
-                if(GariumScript.Garium < 30)
+                towerCost = towerPrefabs[0].GetComponent<TurretScript>().GariumCost;
+                if (GariumScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumScript.Garium -= 30;
+                GariumScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[0]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             case "Tower B":
-                if (GariumScript.Garium < 40)
+                towerCost = towerPrefabs[1].GetComponent<TurretScript>().GariumCost;
+                if (GariumScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumScript.Garium -= 40;
+                GariumScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[1]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
-                //Update player's garium
 
                 break;
             case "Tower C":
