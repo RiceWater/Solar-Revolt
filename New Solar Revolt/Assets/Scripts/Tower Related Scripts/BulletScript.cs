@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBScript : MonoBehaviour
+public class BulletScript : MonoBehaviour
 {
+    [Header("Bullet Attributes")]
+    [SerializeField] private float damage;
+    [SerializeField] private float splashRange;
     private GameObject target;
     private Rigidbody2D bulletRigidBody;
     private float moveSpeed;
     private float rotationSpeed;
-    private float damage = 2;
-    private float splashRange = 5;
+    
 
     void Start()
     {
@@ -53,8 +55,7 @@ public class BulletBScript : MonoBehaviour
             }
             else if (collision.gameObject.Equals(target))
             {
-                target.GetComponent<EnemyAttributesScript>().TakeDamage(1); //replace with tower damage (Wood's Code Needed)
-                Destroy(gameObject);
+                target.GetComponent<EnemyAttributesScript>().TakeDamage(damage);
             }
             else
             {

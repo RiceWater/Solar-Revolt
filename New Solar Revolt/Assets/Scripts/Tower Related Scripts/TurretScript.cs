@@ -2,34 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurretCScript : MonoBehaviour
+public class TurretScript : MonoBehaviour
 {
-    [SerializeField] private int gariumCost;
-    private Transform target;  
-
+    //For towers
+    [Header("Tower Settings")]
     //For direction;
-    public Transform directionObject;
-
-    //Bullet-related
-    public float fireRate;
+    [SerializeField] private Transform directionObject;
+    [SerializeField] private Transform bulletSpawnLocation;
+    [SerializeField] private int gariumCost;
+    [SerializeField] private float fireRate;
     private float fireCountdown;
+    private Transform target;
 
-    //Bullet Prefabs-related
-    public GameObject pfBulletC;
-    public Transform spawnLocationBulletC;
+    //For prefabs
+    [Header("Required Prefabs")]
+    [SerializeField] private GameObject bulletPrefab;
+    
 
-    [SerializeField] private List<GameObject> enemiesInRange = new List<GameObject>();
+    private List<GameObject> enemiesInRange = new List<GameObject>();
 
     //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
-    [SerializeField] private char targetPriority;
+    private char targetPriority;
 
     private void Start()
     {
         //InvokeRepeating("TargetEnemyNearGoal", 0f, 1f);
         targetPriority = 'G';
-        fireRate = 1f;
+        //fireRate = 1f;
         fireCountdown = 0f;
-        gariumCost = 20;
+        //gariumCost = 20;
     }
 
     private void Update()
@@ -56,6 +57,12 @@ public class TurretCScript : MonoBehaviour
     {
         get { return gariumCost; }
         set { gariumCost = value; }
+    }
+
+    public char TargetPriority
+    {
+        get { return targetPriority; }
+        set { targetPriority = value; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,8 +92,8 @@ public class TurretCScript : MonoBehaviour
 
     private void FireProjectile()
     {
-        GameObject bullet = Instantiate(pfBulletC, spawnLocationBulletC.position, spawnLocationBulletC.rotation);
-        bullet.GetComponent<BulletCScript>().SetTarget(target.gameObject);   
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
+        bullet.GetComponent<BulletScript>().SetTarget(target.gameObject);   
     }
 
     private void SetTargetPriority()

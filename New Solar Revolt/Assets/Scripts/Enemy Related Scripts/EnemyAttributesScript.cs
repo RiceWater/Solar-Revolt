@@ -31,17 +31,12 @@ public class EnemyAttributesScript : MonoBehaviour
     {
         if (enemyHealth < 1)
         {
-            Destroy(gameObject);
             GariumScript.Garium += enemyGarium;
+            Destroy(gameObject);
         }
     }
     public void TakeDamage(float damageAmount)
     {
         enemyHealth -= damageAmount;
-
-        if (enemyHealth <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

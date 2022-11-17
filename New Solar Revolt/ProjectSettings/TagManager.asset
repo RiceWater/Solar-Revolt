@@ -12,6 +12,7 @@ TagManager:
   - Tower Slot
   - Slot Option
   - Slot Options
+  - Switch Priority
   layers:
   - Default
   - TransparentFX

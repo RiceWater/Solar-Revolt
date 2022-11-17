@@ -97,10 +97,10 @@ GameObject:
   - component: {fileID: 5773510720556010307}
   - component: {fileID: 1101780684377462538}
   - component: {fileID: 2037778476}
-  - component: {fileID: -5954297099628810161}
   - component: {fileID: 5308531968157841055}
+  - component: {fileID: 2235521230815507213}
   m_Layer: 0
-  m_Name: Turret Av3
+  m_Name: BB-75 Mortar Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -188,25 +188,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-5954297099628810161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508908102647878157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84768cfdaa3d67d43b3fc6cdb1b46d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gariumCost: 0
-  directionObject: {fileID: 1508908102099296520}
-  fireRate: 0
-  pfBulletC: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}
-  spawnLocationBulletC: {fileID: 529831527767011737}
-  enemiesInRange: []
-  targetPriority: 71
 --- !u!114 &5308531968157841055
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,6 +201,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRangeDisplayPF: {fileID: 3885164790247355941}
+--- !u!114 &2235521230815507213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508908102647878157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c507bc1f01ba38469a315d95eabe4e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gariumCost: 50
+  directionObject: {fileID: 1508908102099296520}
+  fireRate: 0.5
+  bulletPrefab: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}
+  bulletSpawnLocation: {fileID: 529831527767011737}
+  enemiesInRange: []
 --- !u!1 &1508908103272588388
 GameObject:
   m_ObjectHideFlags: 0
