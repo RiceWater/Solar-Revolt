@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletAScript : MonoBehaviour
+public class BulletScript : MonoBehaviour
 {
+    [Header("Bullet Attributes")]
+    [SerializeField] private float damage;
+    [SerializeField] private float splashRange;
     private GameObject target;
     private Rigidbody2D bulletRigidBody;
     private float moveSpeed;
     private float rotationSpeed;
+    
 
     void Start()
     {
@@ -31,15 +35,33 @@ public class BulletAScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (collision.gameObject.Equals(target))
+            if(splashRange > 0)
             {
-                target.GetComponent<EnemyAttributesScript>().TakeDamage(1); //replace with tower damage (Wood's Code Needed)
-                Destroy(gameObject);
+                var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRange);
+                foreach(var hitCollider in hitColliders)
+                {
+                    Debug.Log(hitCollider.gameObject.name);
+                    var enemy = hitCollider.GetComponent<EnemyAttributesScript>();
+                    if (enemy)
+                    {
+                        var closestPoint = hitCollider.ClosestPoint(transform.position);
+                        var distance = Vector3.Distance(closestPoint, transform.position);
+
+                        var damagePercent = Mathf.InverseLerp(splashRange, 0, distance);
+                        enemy.TakeDamage(damagePercent * damage);
+                        Destroy(gameObject);
+                    }
+                }
+            }
+            else if (collision.gameObject.Equals(target))
+            {
+                target.GetComponent<EnemyAttributesScript>().TakeDamage(damage);
             }
             else
             {
                 Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
             }
+            Destroy(gameObject);
         }
     }
 

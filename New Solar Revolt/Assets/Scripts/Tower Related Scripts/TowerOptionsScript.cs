@@ -9,11 +9,14 @@ public class TowerOptionsScript : MonoBehaviour
     private RaycastHit2D[] rc;
     private Transform towerRangeDisplayTransform;
 
+    private char[] towerTargetOptions = { 'G', 'R', 'S', 'W' };
+    private int towerTargetOptionsIndex;
     private void Start()
     {
         Color spriteColor = towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color;
         towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0.5f);
         towerRangeDisplayPF.SetActive(false);
+        towerTargetOptionsIndex = 0;
     }
 
     private void Update()
@@ -71,6 +74,10 @@ public class TowerOptionsScript : MonoBehaviour
                 {
                     SellTower(rc[i]);
                 }
+                else if (rc[i].collider.transform.CompareTag("Switch Priority")) {
+                    SwitchPriority();
+                    CloseTowerOptionsAndRangeDisplay(rc[i]);
+                }
                 
             }
         }
@@ -80,17 +87,9 @@ public class TowerOptionsScript : MonoBehaviour
     {
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
         int gariumCost = 0;
-        if (towerRadius.transform.GetComponent<TurretAScript>() != null)
+        if(towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-            gariumCost = towerRadius.transform.GetComponent<TurretAScript>().GariumCost;
-        }
-        else if(towerRadius.transform.GetComponent<TurretBScript>() != null)
-        {
-            gariumCost = towerRadius.transform.GetComponent<TurretBScript>().GariumCost;
-        }
-        else if(towerRadius.transform.GetComponent<TurretCScript>() != null)
-        {
-            gariumCost = towerRadius.transform.GetComponent<TurretCScript>().GariumCost;
+            gariumCost = towerRadius.transform.GetComponent<TurretScript>().GariumCost;
         }
 
         if (GariumScript.Garium < gariumCost) { return; }
@@ -98,19 +97,10 @@ public class TowerOptionsScript : MonoBehaviour
         towerRadius.radius += 5;
         GariumScript.Garium -= gariumCost;
         
-        if (towerRadius.transform.GetComponent<TurretAScript>() != null)
+        if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-            towerRadius.transform.GetComponent<TurretAScript>().GariumCost += 30;
+            towerRadius.transform.GetComponent<TurretScript>().GariumCost += 30;
         }
-        else if (towerRadius.transform.GetComponent<TurretBScript>() != null)
-        {
-            towerRadius.transform.GetComponent<TurretBScript>().GariumCost += 30;
-        }
-        else if (towerRadius.transform.GetComponent<TurretCScript>() != null)
-        {
-            towerRadius.transform.GetComponent<TurretCScript>().GariumCost += 30;
-        }
-
         //add damage (need Wood's Code)
         //increase firerate(?)
     }
@@ -118,12 +108,24 @@ public class TowerOptionsScript : MonoBehaviour
     private void SellTower(RaycastHit2D rc)
     {
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
-        GariumScript.Garium += (towerRadius.transform.GetComponent<TurretAScript>().GariumCost / 3);
+        if (towerRadius.transform.GetComponent<TurretScript>() != null)
+        {
+            GariumScript.Garium += (towerRadius.transform.GetComponent<TurretScript>().GariumCost / 3);
+        }
+        
         Destroy(gameObject);
     }
 
-    //Retrieve the transform/objects again to avoid closing the wrong gameobjects
-    //Currently the best solution to fix the closing tower menu bug
+    private void SwitchPriority()
+    {
+        towerTargetOptionsIndex++;
+        if(towerTargetOptionsIndex >= towerTargetOptions.Length)
+        {
+            towerTargetOptionsIndex = 0;
+        }
+        transform.GetComponent<TurretScript>().TargetPriority = towerTargetOptions[towerTargetOptionsIndex];
+    }
+    
     private void CloseTowerOptionsAndRangeDisplay(RaycastHit2D rc)
     {
         Transform towerOptionsTransform = rc.collider.transform.parent;
