@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//to rename file for better suit
 public class GariumScript : MonoBehaviour
 {
-    [SerializeField] private static int garium;
+    private static int lives;
+    private static int garium;
     private float second;
 
     void Start()
     {
         garium = 100;
+        lives = 20;
         second = 0;
     }
 
-    
+
     void Update()
     {
-        Debug.LogWarning(garium);
         second += Time.deltaTime;
         IncrementGarium();
         ValueProofGarium();
@@ -27,6 +29,13 @@ public class GariumScript : MonoBehaviour
         get { return garium; }
         set { garium = value; }
     }
+
+    public static int Lives
+    {
+        get { return lives; }
+        set { lives = value; }
+    }
+
 
     private void IncrementGarium()
     {
