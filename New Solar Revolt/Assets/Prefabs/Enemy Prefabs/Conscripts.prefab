@@ -166,3 +166,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGarium: 3
   enemyHealth: 10
+  lifeReduction: 1

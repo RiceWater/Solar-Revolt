@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //to rename file for better suit
-public class GariumScript : MonoBehaviour
+public class GariumAndLivesScript : MonoBehaviour
 {
     private static int lives;
     private static int garium;
@@ -11,7 +11,7 @@ public class GariumScript : MonoBehaviour
 
     void Start()
     {
-        garium = 100;
+        garium = 30;
         lives = 20;
         second = 0;
     }
@@ -39,7 +39,7 @@ public class GariumScript : MonoBehaviour
 
     private void IncrementGarium()
     {
-        if (second > 0.5)
+        if (second > 0.7)
         {
             garium++;
             second = 0;

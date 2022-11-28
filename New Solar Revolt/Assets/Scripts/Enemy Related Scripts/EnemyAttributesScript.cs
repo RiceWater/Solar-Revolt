@@ -8,6 +8,7 @@ public class EnemyAttributesScript : MonoBehaviour
     //SeralizedField makes you input values in the inspector
     [SerializeField] private int enemyGarium;
     [SerializeField] private float enemyHealth;
+    [SerializeField] private int lifeReduction;
 
 
     private void Update()
@@ -27,11 +28,16 @@ public class EnemyAttributesScript : MonoBehaviour
         set { enemyHealth = value; }
     }
 
+    public int LifeReduction
+    {
+        get { return lifeReduction; }
+        set { lifeReduction = value; }
+    }
     private void IncreasePlayerGarium()
     {
         if (enemyHealth < 1)
         {
-            GariumScript.Garium += enemyGarium;
+            GariumAndLivesScript.Garium += enemyGarium;
             Destroy(gameObject);
         }
     }

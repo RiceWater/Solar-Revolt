@@ -76,22 +76,22 @@ public class TowerSlotScript : MonoBehaviour
         {
             case "Tower A":
                 towerCost = towerPrefabs[0].GetComponent<TurretScript>().GariumCost;
-                if (GariumScript.Garium < towerCost)
+                if (GariumAndLivesScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumScript.Garium -= towerCost;
+                GariumAndLivesScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[0]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             case "Tower B":
                 towerCost = towerPrefabs[1].GetComponent<TurretScript>().GariumCost;
-                if (GariumScript.Garium < towerCost)
+                if (GariumAndLivesScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumScript.Garium -= towerCost;
+                GariumAndLivesScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[1]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
