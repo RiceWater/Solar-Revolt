@@ -5,42 +5,62 @@ using UnityEngine;
 public class WaveSpawnerScript : MonoBehaviour
 {
     public Transform[] enemyPrefab;
-    public int totalWaves = 3;
+    
     public Transform spawnPoint;
     private float timeBetweenWaves = 20f;
     public float countdown = 2f;
 
+    //Size is the number of waves, string is enemies in each wave
+    public List<string> waves = new List<string>();
+    private int wavesRemaining = 0;
+    
+    private List<int> waveEnemies = new List<int>();
+    //var is used to convert one string into int at a time
+    private int stringcounter = 0; 
+    private void Start()
+    {
+        wavesRemaining = waves.Count;
+        
+    }
     private void Update()
     {
         if(countdown < 0)
         {
+            GetEnemiesInWave();
             SpawnWave();
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
     }
 
-    private void SpawnWave()
+    private void GetEnemiesInWave()
     {
-        if(totalWaves > 0)
+        if (stringcounter < waves.Count)
         {
-            totalWaves--;
-            StartCoroutine(TestSpawn());
+            waveEnemies.Clear();
+            for (int i = 0; i < waves[stringcounter].Length; i++)
+            {
+                waveEnemies.Add(waves[stringcounter][i] - '0');
+            }
+            stringcounter++;
         }
     }
 
-    private void SpawnEnemy()
+    private void SpawnWave()
     {
-        Instantiate(enemyPrefab[0], spawnPoint.position, spawnPoint.rotation);
+        if(wavesRemaining > 0)
+        {
+            wavesRemaining--;
+            StartCoroutine(SpawnEnemy());
+        }
     }
 
-    IEnumerator TestSpawn()
+    IEnumerator SpawnEnemy()
     {
-        int numberOfEnemies = Random.Range(1, 10);
-        for (int i = 0; i < numberOfEnemies; i++)
+        for(int i = 0; i < waveEnemies.Count; i++)
         {
+            Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(1);
-            SpawnEnemy();
         }
         
     }

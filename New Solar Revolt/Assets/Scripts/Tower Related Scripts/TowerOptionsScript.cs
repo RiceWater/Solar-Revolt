@@ -92,10 +92,10 @@ public class TowerOptionsScript : MonoBehaviour
             gariumCost = towerRadius.transform.GetComponent<TurretScript>().GariumCost;
         }
 
-        if (GariumScript.Garium < gariumCost) { return; }
+        if (GariumAndLivesScript.Garium < gariumCost) { return; }
 
         towerRadius.radius += 5;
-        GariumScript.Garium -= gariumCost;
+        GariumAndLivesScript.Garium -= gariumCost;
         
         if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
@@ -110,7 +110,7 @@ public class TowerOptionsScript : MonoBehaviour
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
         if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-            GariumScript.Garium += (towerRadius.transform.GetComponent<TurretScript>().GariumCost / 3);
+            GariumAndLivesScript.Garium += (towerRadius.transform.GetComponent<TurretScript>().GariumCost / 3);
         }
         
         Destroy(gameObject);

@@ -51,6 +51,11 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
+            GariumAndLivesScript.Lives -= transform.GetComponent<EnemyAttributesScript>().LifeReduction;
+            if(GariumAndLivesScript.Lives < 0)
+            {
+                GariumAndLivesScript.Lives = 0;
+            }
             Destroy(gameObject);
         }
         

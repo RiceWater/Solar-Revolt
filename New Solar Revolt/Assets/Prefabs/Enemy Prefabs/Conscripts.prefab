@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b688791b8f4794fb7a4f6c1bfde1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
 --- !u!114 &2097003943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,5 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646e4915ebf49b34a8bac95d143713ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGarium: 10
-  enemyHealth: 5
+  enemyGarium: 3
+  enemyHealth: 10
+  lifeReduction: 1
