@@ -11,6 +11,7 @@ public class EnemyMovementScript : MonoBehaviour
 
     private int editableSpeed;
     private float stunDuration;
+
     private void Start()
     {
         editableSpeed = speed;
