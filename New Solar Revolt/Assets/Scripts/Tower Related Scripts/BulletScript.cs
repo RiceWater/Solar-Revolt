@@ -54,7 +54,7 @@ public class BulletScript : MonoBehaviour
         else if(collision.gameObject.name.Contains("Tesla XM-T50 EHSS") && transform.gameObject.name.Contains("Tesla XM-T50 EHSS Bullet") && !teslaTriggered) 
         {
             teslaTriggered = true;  //to avoid double trigger (tower has 2 trigger colliders)
-            ApplyStun();
+            ApplyStunAndSplashDamage();
             Destroy(gameObject);
         }
     }
@@ -83,7 +83,7 @@ public class BulletScript : MonoBehaviour
         }
     }
 
-    private void ApplyStun()
+    private void ApplyStunAndSplashDamage()
     {
         var hitColliders = Physics2D.OverlapCircleAll(transform.position, splashRange);
         foreach (var hitCollider in hitColliders)
@@ -92,7 +92,7 @@ public class BulletScript : MonoBehaviour
             if (enemy)
             {
                 //Stun
-                bool canStun = Random.Range(0, 101) <= 90;  //15% chance to stun enemies
+                bool canStun = Random.Range(0, 101) <= 15;  //15% chance to stun enemies
                 if (canStun)
                 {
                     enemy.gameObject.GetComponent<EnemyMovementScript>().Stun(2f);

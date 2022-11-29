@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShockScript : MonoBehaviour
+public class TeslaTowerScript : MonoBehaviour
 {
     //For towers
     [Header("Tower Settings")]
@@ -35,8 +35,6 @@ public class ShockScript : MonoBehaviour
         {
             return;
         }
-
-        //RotateTowardsTarget();
 
         //Fires the projectile
         if (fireCountdown <= 0 && target != null)
@@ -74,15 +72,6 @@ public class ShockScript : MonoBehaviour
         {
             enemiesInRange.Remove(collision.gameObject);
         }
-    }
-
-    private void RotateTowardsTarget()
-    {
-        var offset = 0f;
-        Vector2 dir = target.position - transform.position;
-        dir.Normalize();
-        float angle = Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x);
-        //directionObject.transform.rotation = Quaternion.Euler(Vector3.forward * (angle + offset));
     }
 
     private void FireProjectile()

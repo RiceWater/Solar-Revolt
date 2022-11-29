@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1784cae02fa44bb4fce4345cb766d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gariumCost: 25
+  gariumCost: 45
   fireRate: 0.5
   bulletPrefab: {fileID: 200645615588126804, guid: 6c9cfbc55e1de974ab797f56a922656d, type: 3}
 --- !u!1 &1508908103272588388
