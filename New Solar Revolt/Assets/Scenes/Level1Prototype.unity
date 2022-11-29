@@ -3373,7 +3373,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
@@ -4458,7 +4458,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
@@ -6888,6 +6888,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BB-75 Mortar Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 1162effed98c49c41b0a3ff89afb0b0a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1162effed98c49c41b0a3ff89afb0b0a, type: 3}
 --- !u!1001 &472235541
@@ -7092,6 +7096,10 @@ PrefabInstance:
     - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_Name
       value: Tower Slot (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
@@ -7617,7 +7625,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 65039514}
   countdown: 2
   waves:
-  - 0031
+  - 0
   - 1232
   - 2222
 --- !u!114 &519437011
@@ -12807,6 +12815,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower Dummy
       objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
 --- !u!1001 &818579817
@@ -15658,6 +15670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RF-30 CIWS Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
 --- !u!1001 &1078503200
@@ -17336,6 +17352,10 @@ PrefabInstance:
     - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_Name
       value: Tower Slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
@@ -21198,6 +21218,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2832879622613648097, guid: 3858fae730d6f784dabbc302c38127b9, type: 3}
   m_PrefabInstance: {fileID: 1472237677}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1473378889
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -32
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878147, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_Name
+      value: Tesla XM-T50 EHSS
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6229231776136738547, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
 --- !u!1001 &1480343340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27877,6 +27962,10 @@ PrefabInstance:
     - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_Name
       value: Tower Slot (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157784271442717177, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}

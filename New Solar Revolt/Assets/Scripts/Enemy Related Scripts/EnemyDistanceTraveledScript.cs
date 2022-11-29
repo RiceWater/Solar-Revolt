@@ -9,6 +9,7 @@ public class EnemyDistanceTraveledScript : MonoBehaviour
     private float speed;
     public float distanceTraveled;
     private float timeSinceSpawn;
+
     void Start()
     {
         speed = gameObject.GetComponent<EnemyMovementScript>().getSpeed();
@@ -17,8 +18,9 @@ public class EnemyDistanceTraveledScript : MonoBehaviour
 
     void Update()
     {
+        speed = gameObject.GetComponent<EnemyMovementScript>().getSpeed();
         //For future implementation (stun effect from tower)
-        if(speed != 0)
+        if (speed != 0)
         {
             timeSinceSpawn += Time.deltaTime;
             distanceTraveled = timeSinceSpawn * speed;

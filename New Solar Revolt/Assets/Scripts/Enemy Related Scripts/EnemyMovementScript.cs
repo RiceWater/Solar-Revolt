@@ -9,8 +9,12 @@ public class EnemyMovementScript : MonoBehaviour
     private int waypointIndex;
     private bool setStartingPoint;
 
+    private int editableSpeed;
+    private float stunDuration;
+
     private void Start()
     {
+        editableSpeed = speed;
         waypointIndex = 1;
         setStartingPoint = false;
     }
@@ -25,19 +29,28 @@ public class EnemyMovementScript : MonoBehaviour
                 target = WaypointsScript.waypoints[waypointIndex];
                 setStartingPoint = true;
             }
-            
+
         }
 
         //Code for making enemy move from starting waypoint to ending waypoint
         if (setStartingPoint)
         {
             Vector3 dir = target.position - transform.position;
-            transform.Translate(speed * Time.deltaTime * dir.normalized);
+            transform.Translate(editableSpeed * Time.deltaTime * dir.normalized);
 
             if (Vector3.Distance(transform.position, target.position) < 0.25f)
             {
                 SetNextWaypoint();
             }
+        }
+        if(editableSpeed == 0)
+        {
+            stunDuration -= Time.deltaTime;
+        }
+
+        if(stunDuration <= 0)
+        {
+            editableSpeed = speed;
         }
     }
 
@@ -52,13 +65,13 @@ public class EnemyMovementScript : MonoBehaviour
         else
         {
             GariumAndLivesScript.Lives -= transform.GetComponent<EnemyAttributesScript>().LifeReduction;
-            if(GariumAndLivesScript.Lives < 0)
+            if (GariumAndLivesScript.Lives < 0)
             {
                 GariumAndLivesScript.Lives = 0;
             }
             Destroy(gameObject);
         }
-        
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -71,6 +84,12 @@ public class EnemyMovementScript : MonoBehaviour
 
     public float getSpeed()
     {
-        return speed;
+        return editableSpeed;
+    }
+
+    public void Stun(float duration)
+    {
+        editableSpeed = 0;
+        stunDuration = duration;
     }
 }

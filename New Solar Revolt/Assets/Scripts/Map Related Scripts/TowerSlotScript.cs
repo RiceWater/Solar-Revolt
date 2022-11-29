@@ -98,12 +98,15 @@ public class TowerSlotScript : MonoBehaviour
 
                 break;
             case "Tower C":
-                Debug.Log("C");
-                //Update player's garium
-                break;
-            case "Tower D":
-                Debug.Log("D");
-                //Update player's garium
+                towerCost = towerPrefabs[2].GetComponent<TeslaTowerScript>().GariumCost;
+                if (GariumAndLivesScript.Garium < towerCost)
+                {
+                    return;
+                }
+                GariumAndLivesScript.Garium -= towerCost;
+                currTower = Instantiate(towerPrefabs[2]);
+                currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
+                transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             default:
                 break;
