@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyMovementScript : MonoBehaviour
 {
-    [SerializeField] private int speed;
+    [SerializeField] private float speed;
     private Transform target;
     private int waypointIndex;
     private bool setStartingPoint;
 
-    private int editableSpeed;
+    private float editableSpeed;
     private float stunDuration;
 
     private void Start()

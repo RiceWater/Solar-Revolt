@@ -10,14 +10,17 @@ public class TeslaTowerScript : MonoBehaviour
     //[SerializeField] private Transform directionObject;
     [SerializeField] private int gariumCost;
     [SerializeField] private float fireRate;
+    [SerializeField] private List<int> upgradeCost = new List<int>();
+    private int upgradeCounter;
     private float fireCountdown;
+    private float bulletDamage;
     private Transform target;
 
     //For prefabs
     [Header("Required Prefabs")]
     [SerializeField] private GameObject bulletPrefab;
 
-    private List<GameObject> enemiesInRange = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemiesInRange = new List<GameObject>();
 
     //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
     private char targetPriority;
@@ -26,6 +29,7 @@ public class TeslaTowerScript : MonoBehaviour
     {
         targetPriority = 'G';
         fireCountdown = 0f;
+        bulletDamage = bulletPrefab.GetComponent<BulletScript>().Damage;
     }
 
     private void Update()
@@ -46,6 +50,18 @@ public class TeslaTowerScript : MonoBehaviour
 
     }
 
+    public float BulletDamage
+    {
+        get { return bulletDamage; }
+        set { bulletDamage = value; }
+    }
+
+    public float FireRate
+    {
+        get { return fireRate; }
+        set { fireRate = value; }
+    }
+
     public int GariumCost
     {
         get { return gariumCost; }
@@ -56,6 +72,12 @@ public class TeslaTowerScript : MonoBehaviour
     {
         get { return targetPriority; }
         set { targetPriority = value; }
+    }
+
+    public int UpgradeCounter
+    {
+        get { return upgradeCounter; }
+        set { upgradeCounter = value; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,9 +96,15 @@ public class TeslaTowerScript : MonoBehaviour
         }
     }
 
+    public List<int> GetUpgradeCost()
+    {
+        return upgradeCost;
+    }
+
     private void FireProjectile()
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        bullet.GetComponent<BulletScript>().Damage = bulletDamage;
         bullet.GetComponent<BulletScript>().SetTarget(transform.gameObject);
     }
 
@@ -113,7 +141,7 @@ public class TeslaTowerScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -138,7 +166,7 @@ public class TeslaTowerScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -155,7 +183,7 @@ public class TeslaTowerScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -181,7 +209,7 @@ public class TeslaTowerScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }

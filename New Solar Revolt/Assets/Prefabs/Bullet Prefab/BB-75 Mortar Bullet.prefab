@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7821294292035860848}
   - component: {fileID: 5078890182674484933}
   m_Layer: 0
-  m_Name: Tesla XM-T50 EHSS Bullet
+  m_Name: BB-75 Mortar Bullet
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.12776785, g: 0.6981132, b: 0.48675287, a: 1}
+  m_Color: {r: 0.10588235, g: 0.30103442, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -137,4 +137,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  splashRange: 10
+  splashRange: 5

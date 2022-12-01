@@ -86,23 +86,62 @@ public class TowerOptionsScript : MonoBehaviour
     private void UpgradeTower(RaycastHit2D rc)
     {
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
-        int gariumCost = 0;
-        if(towerRadius.transform.GetComponent<TurretScript>() != null)
-        {
-            gariumCost = towerRadius.transform.GetComponent<TurretScript>().GariumCost;
-        }
-
-        if (GariumAndLivesScript.Garium < gariumCost) { return; }
-
-        towerRadius.radius += 5;
-        GariumAndLivesScript.Garium -= gariumCost;
-        
+        int upgradeCounter = 0;
+        List<int> upgradeCosts = new List<int>();
         if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-            towerRadius.transform.GetComponent<TurretScript>().GariumCost += 30;
+
+            upgradeCosts = towerRadius.transform.GetComponent<TurretScript>().GetUpgradeCost();
+            upgradeCounter = towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter;
+            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
+            {
+                if (towerRadius.gameObject.name.Contains("BB-75"))
+                {
+                    //range (+10%)
+                    towerRadius.radius = towerRadius.radius * 11 / 10;
+                    //damage (+40%)
+                    towerRadius.transform.GetComponent<TurretScript>().BulletDamage =
+                        towerRadius.transform.GetComponent<TurretScript>().BulletDamage * 7 / 5;
+                    //firerate (+20%)
+                    towerRadius.transform.GetComponent<TurretScript>().FireRate =
+                        towerRadius.transform.GetComponent<TurretScript>().FireRate * 6 / 5;
+                }
+                else if (towerRadius.gameObject.name.Contains("RF-30"))
+                {
+                    //range (+10%)
+                    towerRadius.radius = towerRadius.radius * 11 / 10;
+                    //damage (+20%)
+                    towerRadius.transform.GetComponent<TurretScript>().BulletDamage =
+                        towerRadius.transform.GetComponent<TurretScript>().BulletDamage * 6 / 5;
+                    //firerate (+40%)
+                    towerRadius.transform.GetComponent<TurretScript>().FireRate =
+                        towerRadius.transform.GetComponent<TurretScript>().FireRate * 7 / 5;
+                }
+                //counter and money
+                GariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
+                towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter++;
+            }
         }
-        //add damage (need Wood's Code)
-        //increase firerate(?)
+        else if (towerRadius.transform.GetComponent<TeslaTowerScript>() != null)
+        {
+            Debug.Log("TESLA");
+            upgradeCosts = towerRadius.transform.GetComponent<TeslaTowerScript>().GetUpgradeCost();
+            upgradeCounter = towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter;
+            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
+            {
+                if (towerRadius.gameObject.name.Contains("XM-T50"))
+                {
+                    //range (+ 20%)
+                    towerRadius.radius = towerRadius.radius * 6 / 5;
+                    //damage (+20%)
+                    towerRadius.transform.GetComponent<TeslaTowerScript>().BulletDamage =
+                        towerRadius.transform.GetComponent<TeslaTowerScript>().BulletDamage * 6 / 5;
+                    //firerate (+20%)
+                    towerRadius.transform.GetComponent<TeslaTowerScript>().FireRate =
+                        towerRadius.transform.GetComponent<TeslaTowerScript>().FireRate * 6 / 5;
+                }
+            }
+        }
     }
 
     private void SellTower(RaycastHit2D rc)
@@ -110,10 +149,31 @@ public class TowerOptionsScript : MonoBehaviour
         CircleCollider2D towerRadius = rc.collider.transform.root.GetComponent<CircleCollider2D>();
         if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-            GariumAndLivesScript.Garium += (towerRadius.transform.GetComponent<TurretScript>().GariumCost / 3);
+            List<int> upgradeCosts = new List<int>();
+            upgradeCosts = towerRadius.transform.GetComponent<TurretScript>().GetUpgradeCost();
+
+            int totalGariumSpent = towerRadius.transform.GetComponent<TurretScript>().GariumCost;
+            for (int i = 0; i < upgradeCosts.Count; i++)
+            {
+                totalGariumSpent += upgradeCosts[i];
+            }
+
+            GariumAndLivesScript.Garium += totalGariumSpent / 3;
         }
-        
-        Destroy(gameObject);
+        else if (towerRadius.transform.GetComponent<TeslaTowerScript>() != null)
+        {
+            List<int> upgradeCosts = new List<int>();
+            upgradeCosts = towerRadius.transform.GetComponent<TeslaTowerScript>().GetUpgradeCost();
+
+            int totalGariumSpent = towerRadius.transform.GetComponent<TeslaTowerScript>().GariumCost;
+            for (int i = 0; i < upgradeCosts.Count; i++)
+            {
+                totalGariumSpent += upgradeCosts[i];
+            }
+
+            GariumAndLivesScript.Garium += totalGariumSpent / 3;
+        }
+        Destroy(transform.root.gameObject);
     }
 
     private void SwitchPriority()
@@ -123,7 +183,16 @@ public class TowerOptionsScript : MonoBehaviour
         {
             towerTargetOptionsIndex = 0;
         }
-        transform.GetComponent<TurretScript>().TargetPriority = towerTargetOptions[towerTargetOptionsIndex];
+        
+        if(transform.GetComponent<TurretScript>() != null)
+        {
+            transform.GetComponent<TurretScript>().TargetPriority = towerTargetOptions[towerTargetOptionsIndex];
+        }
+        else if (transform.GetComponent<TeslaTowerScript>() != null)
+        {
+            transform.GetComponent<TeslaTowerScript>().TargetPriority = towerTargetOptions[towerTargetOptionsIndex];
+        }
+        
     }
     
     private void CloseTowerOptionsAndRangeDisplay(RaycastHit2D rc)
