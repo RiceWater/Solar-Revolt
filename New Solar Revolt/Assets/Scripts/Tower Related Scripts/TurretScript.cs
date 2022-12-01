@@ -11,14 +11,17 @@ public class TurretScript : MonoBehaviour
     [SerializeField] private Transform bulletSpawnLocation;
     [SerializeField] private int gariumCost;
     [SerializeField] private float fireRate;
+    [SerializeField] private List<int> upgradeCost = new List<int>();
+    private int upgradeCounter;
     private float fireCountdown;
+    private float bulletDamage;
     private Transform target;
 
     //For prefabs
     [Header("Required Prefabs")]
     [SerializeField] private GameObject bulletPrefab;
     
-    private List<GameObject> enemiesInRange = new List<GameObject>();
+    [SerializeField] private List<GameObject> enemiesInRange = new List<GameObject>();
 
     //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
     private char targetPriority;
@@ -27,6 +30,7 @@ public class TurretScript : MonoBehaviour
     {
         targetPriority = 'G';
         fireCountdown = 0f;
+        bulletDamage = bulletPrefab.GetComponent<BulletScript>().Damage;
     }
 
     private void Update()
@@ -49,6 +53,18 @@ public class TurretScript : MonoBehaviour
 
     }
 
+    public float BulletDamage
+    {
+        get { return bulletDamage; }
+        set { bulletDamage = value; }
+    }
+
+    public float FireRate
+    {
+        get { return fireRate; }
+        set { fireRate = value; }
+    }
+
     public int GariumCost
     {
         get { return gariumCost; }
@@ -59,6 +75,12 @@ public class TurretScript : MonoBehaviour
     {
         get { return targetPriority; }
         set { targetPriority = value; }
+    }
+
+    public int UpgradeCounter
+    {
+        get { return upgradeCounter; }
+        set { upgradeCounter = value; }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +99,11 @@ public class TurretScript : MonoBehaviour
         }
     }
 
+    public  List<int> GetUpgradeCost()
+    {
+        return upgradeCost;
+    }
+
     private void RotateTowardsTarget()
     {
         var offset = 0f;
@@ -89,6 +116,7 @@ public class TurretScript : MonoBehaviour
     private void FireProjectile()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
+        bullet.GetComponent<BulletScript>().Damage = bulletDamage;
         bullet.GetComponent<BulletScript>().SetTarget(target.gameObject);   
     }
 
@@ -125,7 +153,7 @@ public class TurretScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if(target != null)
+        if(target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -150,7 +178,7 @@ public class TurretScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -167,7 +195,7 @@ public class TurretScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }
@@ -193,7 +221,7 @@ public class TurretScript : MonoBehaviour
         }
 
         //checks if enemy is dead before targeting another enemy
-        if (target != null)
+        if (target != null && enemiesInRange.Contains(target.gameObject))
         {
             return;
         }

@@ -13,15 +13,15 @@ public class BulletScript : MonoBehaviour
     private float rotationSpeed;
 
     private bool teslaTriggered;
-    void Start()
+    private void Start()
     {
         bulletRigidBody = transform.gameObject.GetComponent<Rigidbody2D>();
-        moveSpeed = 20f;
+        moveSpeed = 30f;
         rotationSpeed = 4f;
         teslaTriggered = false;
     }
 
-    void Update()
+    private void Update()
     {
         if(target == null)
         {
@@ -59,6 +59,17 @@ public class BulletScript : MonoBehaviour
         }
     }
 
+    public float Damage
+    {
+        get { return damage; }
+        set { damage = value; }
+    }
+
+    public float SplashRange
+    {
+        get { return damage; }
+        set { splashRange = value; }
+    }
 
     public void SetTarget(GameObject enemy)
     {

@@ -159,7 +159,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 0.32, y: 0.32}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -214,9 +214,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae1784cae02fa44bb4fce4345cb766d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gariumCost: 45
-  fireRate: 0.5
+  gariumCost: 90
+  fireRate: 1
+  upgradeCost: 5a0000007d0000009b000000
   bulletPrefab: {fileID: 200645615588126804, guid: 6c9cfbc55e1de974ab797f56a922656d, type: 3}
+  enemiesInRange: []
 --- !u!212 &5342931621074423354
 SpriteRenderer:
   m_ObjectHideFlags: 0

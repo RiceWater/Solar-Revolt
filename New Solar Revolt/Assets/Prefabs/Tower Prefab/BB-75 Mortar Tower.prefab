@@ -316,9 +316,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   directionObject: {fileID: 1508908102099296520}
   bulletSpawnLocation: {fileID: 529831527767011737}
-  gariumCost: 30
+  gariumCost: 90
   fireRate: 0.5
+  upgradeCost: 5a0000007300000091000000
   bulletPrefab: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}
+  enemiesInRange: []
 --- !u!212 &2169331429717987488
 SpriteRenderer:
   m_ObjectHideFlags: 0
