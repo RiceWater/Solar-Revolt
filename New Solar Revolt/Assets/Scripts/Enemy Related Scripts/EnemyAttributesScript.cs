@@ -12,6 +12,13 @@ public class EnemyAttributesScript : MonoBehaviour
     [SerializeField] private bool hasAnalgesicBlood;
     private bool isImmortal;
 
+    [SerializeField] private HealthBarScript healthBar;
+    private float enemyMaxHealth;
+    private void Start()
+    {
+        enemyMaxHealth = enemyHealth;
+        healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
+    }
     private void Update()
     {
         if (isImmortal)
@@ -68,6 +75,7 @@ public class EnemyAttributesScript : MonoBehaviour
         {
             enemyHealth -= damageAmount;
         }
+        healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
     }
 
     private void RemoveImmortality()
