@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyMovementScript : MonoBehaviour
 {
     [SerializeField] private float speed;
-    private Transform target;
+    private Transform targetWayPoint;
     private int waypointIndex;
     private bool setStartingPoint;
 
     private float editableSpeed;
     private float stunDuration;
 
+    private bool reverse; //for VIP
     private void Start()
     {
         editableSpeed = speed;
@@ -26,23 +27,31 @@ public class EnemyMovementScript : MonoBehaviour
             if (!setStartingPoint)
             {
                 transform.position = WaypointsScript.waypoints[0].transform.position;
-                target = WaypointsScript.waypoints[waypointIndex];
+                targetWayPoint = WaypointsScript.waypoints[waypointIndex];
                 setStartingPoint = true;
             }
 
         }
 
         //Code for making enemy move from starting waypoint to ending waypoint
-        if (setStartingPoint)
+        Vector3 dir = targetWayPoint.position - transform.position;
+        transform.Translate(editableSpeed * Time.deltaTime * dir.normalized);
+        if (setStartingPoint && !reverse)
         {
-            Vector3 dir = target.position - transform.position;
-            transform.Translate(editableSpeed * Time.deltaTime * dir.normalized);
-
-            if (Vector3.Distance(transform.position, target.position) < 0.25f)
+            if (Mathf.Abs(Vector3.Distance(transform.position, targetWayPoint.position)) < 0.25f)
             {
-                SetNextWaypoint();
+                SetToNextWaypoint();
             }
         }
+        else if (reverse)
+        {
+            if (Mathf.Abs(Vector3.Distance(transform.position, targetWayPoint.position)) < 0.25f)
+            {
+                SetToPrevWaypoint();
+            }
+            
+        }
+
         if(editableSpeed == 0)
         {
             stunDuration -= Time.deltaTime;
@@ -55,12 +64,17 @@ public class EnemyMovementScript : MonoBehaviour
     }
 
     //Code for going to the next waypoint
-    private void SetNextWaypoint()
+    private void SetToNextWaypoint()
     {
+        if (Mathf.Abs(Vector3.Distance(transform.position, targetWayPoint.position)) >= 0.25f)
+        {
+            return;
+        }
+
         waypointIndex++;
         if (waypointIndex < WaypointsScript.waypoints.Length)
         {
-            target = WaypointsScript.waypoints[waypointIndex];
+            targetWayPoint = WaypointsScript.waypoints[waypointIndex];
         }
         else
         {
@@ -74,6 +88,28 @@ public class EnemyMovementScript : MonoBehaviour
 
     }
 
+    private void SetToPrevWaypoint()
+    {
+        if (Mathf.Abs(Vector3.Distance(transform.position, targetWayPoint.position)) >= 0.25f)
+        {
+            return;
+        }
+
+        if (waypointIndex > -1)
+        {
+            waypointIndex--;
+            targetWayPoint = WaypointsScript.waypoints[waypointIndex];
+        }
+        else
+        {
+            Debug.LogError("GAME OVER");
+        }
+    }
+    public void SetTargetWaypoint(int index)
+    {
+        targetWayPoint = WaypointsScript.waypoints[index];
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
@@ -82,11 +118,22 @@ public class EnemyMovementScript : MonoBehaviour
         }
     }
 
-    public float getSpeed()
+    public float Speed
     {
-        return editableSpeed;
+        get { return editableSpeed; }
     }
 
+    public bool Reverse
+    {
+        get { return reverse; }
+        set { reverse = value; }
+    }
+
+    public int WayPointIndex
+    {
+        get { return waypointIndex; }
+        set { waypointIndex = value; }
+    }
     public void Stun(float duration)
     {
         editableSpeed = 0;

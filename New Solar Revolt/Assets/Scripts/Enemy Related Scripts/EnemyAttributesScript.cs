@@ -75,7 +75,14 @@ public class EnemyAttributesScript : MonoBehaviour
         {
             enemyHealth -= damageAmount;
         }
+
         healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
+        if(enemyHealth <= enemyMaxHealth / 2 && transform.name.Contains("VIP") && !transform.GetComponent<EnemyMovementScript>().Reverse)
+        {
+            transform.GetComponent<EnemyMovementScript>().WayPointIndex = transform.GetComponent<EnemyMovementScript>().WayPointIndex - 1;
+            transform.GetComponent<EnemyMovementScript>().Reverse = true;
+            transform.GetComponent<EnemyMovementScript>().SetTargetWaypoint(transform.GetComponent<EnemyMovementScript>().WayPointIndex);
+        }
     }
 
     private void RemoveImmortality()

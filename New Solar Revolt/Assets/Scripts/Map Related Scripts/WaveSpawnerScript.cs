@@ -16,7 +16,9 @@ public class WaveSpawnerScript : MonoBehaviour
     
     private List<int> waveEnemies = new List<int>();
     //var is used to convert one string into int at a time
-    private int stringcounter = 0; 
+    private int stringcounter = 0;
+
+    [SerializeField] private GameObject waveStarter;
     private void Start()
     {
         wavesRemaining = waves.Count;
@@ -31,6 +33,11 @@ public class WaveSpawnerScript : MonoBehaviour
             countdown = timeBetweenWaves;
         }
         countdown -= Time.deltaTime;
+    }
+
+    public int WaveEnemiesCount
+    {
+        get { return waveEnemies.Count; }
     }
 
     private void GetEnemiesInWave()
@@ -62,6 +69,14 @@ public class WaveSpawnerScript : MonoBehaviour
             Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(1);
         }
-        
+        waveEnemies.Clear();
+        yield return new WaitForSeconds(4);
+        waveStarter.SetActive(stringcounter < waves.Count);
+    }
+
+    public void StartWave()
+    {
+        GariumAndLivesScript.Garium += (int)Mathf.Ceil(countdown * 5 / 3);
+        countdown = 0f;
     }
 }

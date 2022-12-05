@@ -12,13 +12,13 @@ public class EnemyDistanceTraveledScript : MonoBehaviour
 
     void Start()
     {
-        speed = gameObject.GetComponent<EnemyMovementScript>().getSpeed();
+        speed = gameObject.GetComponent<EnemyMovementScript>().Speed;
         distanceTraveled = 0;
     }
 
     void Update()
     {
-        speed = gameObject.GetComponent<EnemyMovementScript>().getSpeed();
+        speed = gameObject.GetComponent<EnemyMovementScript>().Speed;
         //For future implementation (stun effect from tower)
         if (speed != 0)
         {
