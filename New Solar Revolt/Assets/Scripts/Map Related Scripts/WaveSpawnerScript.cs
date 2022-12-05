@@ -30,7 +30,7 @@ public class WaveSpawnerScript : MonoBehaviour
         {
             GetEnemiesInWave();
             SpawnWave();
-            countdown = timeBetweenWaves;
+            countdown = 100;
         }
         countdown -= Time.deltaTime;
     }
@@ -64,12 +64,14 @@ public class WaveSpawnerScript : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
+        waveStarter.SetActive(false);
         for(int i = 0; i < waveEnemies.Count; i++)
         {
             Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation);
             yield return new WaitForSeconds(1);
         }
         waveEnemies.Clear();
+        countdown = timeBetweenWaves;
         yield return new WaitForSeconds(4);
         waveStarter.SetActive(stringcounter < waves.Count);
     }

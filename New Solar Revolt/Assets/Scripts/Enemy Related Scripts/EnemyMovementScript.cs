@@ -102,7 +102,7 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GAME OVER");
+            GariumAndLivesScript.Lives = 0;
         }
     }
     public void SetTargetWaypoint(int index)
