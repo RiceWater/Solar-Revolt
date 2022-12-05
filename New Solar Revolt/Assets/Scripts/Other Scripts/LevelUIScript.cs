@@ -10,12 +10,13 @@ public class LevelUIScript : MonoBehaviour
     [SerializeField] private TextMeshProUGUI livesTextUI;
     [SerializeField] private GameObject gariumImgUI;
     [SerializeField] private TextMeshProUGUI gariumTextUI;
-
+    [SerializeField] private GameObject gameOverMenu;
     private bool isGameOver;
 
     private void Start()
     {
         isGameOver = false;
+        gameOverMenu.SetActive(false);
     }
     private void Update()
     {
@@ -25,6 +26,8 @@ public class LevelUIScript : MonoBehaviour
         if(GariumAndLivesScript.Lives <= 0 && !isGameOver)
         {
             Debug.Log("GAME OVER");
+            gameOverMenu.SetActive(true);
+            Time.timeScale = 0f;
             isGameOver = true;
         }
     }

@@ -21,7 +21,6 @@ public class GariumAndLivesScript : MonoBehaviour
     {
         second += Time.deltaTime;
         IncrementGarium();
-        ValueProofGarium();
     }
 
     public static int Garium
@@ -47,11 +46,4 @@ public class GariumAndLivesScript : MonoBehaviour
         
     }
 
-    private void ValueProofGarium()
-    {
-        if(garium < 0)
-        {
-            garium = 0;
-        }
-    }
 }

@@ -12,6 +12,13 @@ public class EnemyAttributesScript : MonoBehaviour
     [SerializeField] private bool hasAnalgesicBlood;
     private bool isImmortal;
 
+    [SerializeField] private HealthBarScript healthBar;
+    private float enemyMaxHealth;
+    private void Start()
+    {
+        enemyMaxHealth = enemyHealth;
+        healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
+    }
     private void Update()
     {
         if (isImmortal)
@@ -67,6 +74,14 @@ public class EnemyAttributesScript : MonoBehaviour
         else
         {
             enemyHealth -= damageAmount;
+        }
+
+        healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
+        if(enemyHealth <= enemyMaxHealth / 2 && transform.name.Contains("VIP") && !transform.GetComponent<EnemyMovementScript>().Reverse)
+        {
+            transform.GetComponent<EnemyMovementScript>().WayPointIndex = transform.GetComponent<EnemyMovementScript>().WayPointIndex - 1;
+            transform.GetComponent<EnemyMovementScript>().Reverse = true;
+            transform.GetComponent<EnemyMovementScript>().SetTargetWaypoint(transform.GetComponent<EnemyMovementScript>().WayPointIndex);
         }
     }
 
