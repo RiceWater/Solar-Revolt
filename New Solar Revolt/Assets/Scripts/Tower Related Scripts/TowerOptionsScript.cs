@@ -90,7 +90,6 @@ public class TowerOptionsScript : MonoBehaviour
         List<int> upgradeCosts = new List<int>();
         if (towerRadius.transform.GetComponent<TurretScript>() != null)
         {
-
             upgradeCosts = towerRadius.transform.GetComponent<TurretScript>().GetUpgradeCost();
             upgradeCounter = towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter;
             if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
@@ -124,7 +123,6 @@ public class TowerOptionsScript : MonoBehaviour
         }
         else if (towerRadius.transform.GetComponent<TeslaTowerScript>() != null)
         {
-            Debug.Log("TESLA");
             upgradeCosts = towerRadius.transform.GetComponent<TeslaTowerScript>().GetUpgradeCost();
             upgradeCounter = towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter;
             if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
@@ -141,6 +139,9 @@ public class TowerOptionsScript : MonoBehaviour
                         towerRadius.transform.GetComponent<TeslaTowerScript>().FireRate * 6 / 5;
                 }
             }
+            //counter and money
+            GariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
+            towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter++;
         }
     }
 
@@ -151,27 +152,27 @@ public class TowerOptionsScript : MonoBehaviour
         {
             List<int> upgradeCosts = new List<int>();
             upgradeCosts = towerRadius.transform.GetComponent<TurretScript>().GetUpgradeCost();
-
+            int upgradeCounter = towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter;
             int totalGariumSpent = towerRadius.transform.GetComponent<TurretScript>().GariumCost;
-            for (int i = 0; i < upgradeCosts.Count; i++)
+            for (int i = 0; i < upgradeCounter; i++)
             {
                 totalGariumSpent += upgradeCosts[i];
             }
 
-            GariumAndLivesScript.Garium += totalGariumSpent / 3;
+            GariumAndLivesScript.Garium += (totalGariumSpent  * 3 / 5);
         }
         else if (towerRadius.transform.GetComponent<TeslaTowerScript>() != null)
         {
             List<int> upgradeCosts = new List<int>();
             upgradeCosts = towerRadius.transform.GetComponent<TeslaTowerScript>().GetUpgradeCost();
-
+            int upgradeCounter = towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter;
             int totalGariumSpent = towerRadius.transform.GetComponent<TeslaTowerScript>().GariumCost;
-            for (int i = 0; i < upgradeCosts.Count; i++)
+            for (int i = 0; i < upgradeCounter; i++)
             {
                 totalGariumSpent += upgradeCosts[i];
             }
 
-            GariumAndLivesScript.Garium += totalGariumSpent / 3;
+            GariumAndLivesScript.Garium += (totalGariumSpent * 3 / 5);
         }
         Destroy(transform.root.gameObject);
     }
