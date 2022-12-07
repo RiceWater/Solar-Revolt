@@ -118,21 +118,14 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("Here");
             Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
-        
-        
-        /*if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Slot Option"))
-        {
-            Debug.Log("Here");
-            Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
-        }*/
     }
 
     public float Speed
     {
         get { return editableSpeed; }
+        set { editableSpeed = value; }
     }
 
     public bool Reverse
