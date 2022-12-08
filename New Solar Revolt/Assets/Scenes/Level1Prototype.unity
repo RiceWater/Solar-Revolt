@@ -12031,10 +12031,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BB-75 Mortar Tower
       objectReference: {fileID: 0}
-    - target: {fileID: 1508908102647878157, guid: 1162effed98c49c41b0a3ff89afb0b0a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1162effed98c49c41b0a3ff89afb0b0a, type: 3}
 --- !u!1001 &767055194
@@ -27825,6 +27821,10 @@ PrefabInstance:
     - target: {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
       propertyPath: m_Name
       value: Tower Dummy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
