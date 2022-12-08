@@ -19283,10 +19283,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tesla XM-T50 EHSS
       objectReference: {fileID: 0}
-    - target: {fileID: 1508908102647878157, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 959ad700b9d106c47a3a62ba89ca7939, type: 3}
 --- !u!1001 &1301137127
@@ -26205,6 +26201,10 @@ PrefabInstance:
     - target: {fileID: 1508908102647878157, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
       propertyPath: m_Name
       value: RF-30 CIWS Tower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508908102647878157, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
