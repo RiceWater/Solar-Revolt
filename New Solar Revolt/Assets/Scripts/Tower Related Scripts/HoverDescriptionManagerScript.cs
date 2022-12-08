@@ -10,7 +10,7 @@ public class HoverDescriptionManagerScript: MonoBehaviour
     public TextMeshProUGUI towerDesc;
     public RectTransform descWindow;
 
-    public static UnityAction<string, Vector2> OnMouseOver;
+    public static UnityAction<string, string, string, Vector2> OnMouseOver;
     public static UnityAction OnMouseLoseFocus;
 
     private void Start()
@@ -30,12 +30,11 @@ public class HoverDescriptionManagerScript: MonoBehaviour
         OnMouseLoseFocus -= HideDescription;
     }
 
-    private void ShowDescription(string desc, Vector2 mousePos)
+    private void ShowDescription(string name, string fireRateInfo, string damageInfo, Vector2 mousePos)
     {
         descWindow.gameObject.SetActive(true);
-        towerDesc.text = desc;
+        towerDesc.SetText(name + "\n\nFire rate: " + fireRateInfo + "\tDamage: " + damageInfo);
         descWindow.transform.position = new Vector2(mousePos.x + descWindow.sizeDelta.x * 2/ 3, mousePos.y);
-        Debug.Log(mousePos.x + descWindow.sizeDelta.x);
     }
     private void HideDescription()
     {

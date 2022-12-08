@@ -2020,8 +2020,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDescriptionToShow: RF-30 CIWS is a fast shooting tower that targets one enemy
-    at a time
+  name: RF-30 CIWS Tower
+  fireRateInfo: 1.5
+  damageInfo: 3
 --- !u!1 &5157784271442717177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,8 +2289,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDescriptionToShow: Tesla XM-T50 EHSS is a slow tower that deals damage to
-    all enemies in range and can stun them
+  name: Tesla XM-T50 EHSS Tower
+  fireRateInfo: 1
+  damageInfo: 4
 --- !u!1 &7723871985426216671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,5 +2462,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerDescriptionToShow: BB-75 Mortar Tower is a slow tower that deals splash damage
-    to enemies
+  name: BB-75 Mortar Tower (has splash damage)
+  fireRateInfo: 0.5
+  damageInfo: 5
