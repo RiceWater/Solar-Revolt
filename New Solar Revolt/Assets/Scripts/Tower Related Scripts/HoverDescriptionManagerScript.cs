@@ -30,10 +30,10 @@ public class HoverDescriptionManagerScript: MonoBehaviour
         OnMouseLoseFocus -= HideDescription;
     }
 
-    private void ShowDescription(string name, string fireRateInfo, string damageInfo, Vector2 mousePos)
+    private void ShowDescription(string string1, string string2, string string3, Vector2 mousePos)
     {
         descWindow.gameObject.SetActive(true);
-        towerDesc.SetText(name + "\n\nFire rate: " + fireRateInfo + "\tDamage: " + damageInfo);
+        towerDesc.SetText(string1 + "\n" + string2 + "\n" + string3);
         descWindow.transform.position = new Vector2(mousePos.x + descWindow.sizeDelta.x * 2/ 3, mousePos.y);
     }
     private void HideDescription()

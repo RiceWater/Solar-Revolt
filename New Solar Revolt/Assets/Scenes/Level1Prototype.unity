@@ -17893,50 +17893,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1185092445, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: name
-      value: Tesla XM-T50 EHSS Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092445, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: damageInfo
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092445, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: fireRateInfo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092446, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: name
-      value: BB-75 Mortar Tower (has splash damage)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092446, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: damageInfo
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092446, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: fireRateInfo
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092447, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: name
-      value: RF-30 CIWS Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092447, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: damageInfo
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092447, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: fireRateInfo
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092447, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: towerDescriptionToShow
-      value: RD-30 CIWS Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 1185092447, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
-      propertyPath: towerDescriptionToShow.Array.size
-      value: 16
-      objectReference: {fileID: 0}
     - target: {fileID: 5157784271442717175, guid: 578f7a6384833b041a7da4ded96e3f05, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -26252,7 +26208,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1508908102647878157, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46fbd94174a93e24fb9c7b6974196cd6, type: 3}
@@ -27869,10 +27825,6 @@ PrefabInstance:
     - target: {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
       propertyPath: m_Name
       value: Tower Dummy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1508908102647878157, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c08002d5a779aa4b9bc8506b41e132a, type: 3}

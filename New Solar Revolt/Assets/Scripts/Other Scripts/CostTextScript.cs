@@ -12,9 +12,20 @@ public class CostTextScript : MonoBehaviour
 
     private void Update()
     {
-        mouseDetector.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position);
-        image.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offSet);
-        costText.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offSet);
+        if(mouseDetector != null)
+        {
+            mouseDetector.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position);
+        }
+        if(image != null)
+        {
+            image.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offSet);
+        }
+        if(costText != null)
+        {
+            costText.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offSet);
+        }
+        
+        
     }
 
 }

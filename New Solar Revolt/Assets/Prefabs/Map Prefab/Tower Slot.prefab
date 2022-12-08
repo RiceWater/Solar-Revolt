@@ -2021,8 +2021,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: RF-30 CIWS Tower
-  fireRateInfo: 1.5
-  damageInfo: 3
+  fireRateInfo: 'Fire rate:  1.5'
+  damageInfo: 'Damage:  3'
 --- !u!1 &5157784271442717177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2290,8 +2290,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: Tesla XM-T50 EHSS Tower
-  fireRateInfo: 1
-  damageInfo: 4
+  fireRateInfo: 'Fire rate:  1'
+  damageInfo: 'Damage:  4'
 --- !u!1 &7723871985426216671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2463,5 +2463,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: BB-75 Mortar Tower (has splash damage)
-  fireRateInfo: 0.5
-  damageInfo: 5
+  fireRateInfo: 'Fire rate:  0.5'
+  damageInfo: 'Damage:  5'
