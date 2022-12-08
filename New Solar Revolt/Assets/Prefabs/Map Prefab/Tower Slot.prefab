@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 264203296}
   - component: {fileID: 264203295}
   m_Layer: 5
-  m_Name: Tower B Cost
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 670822545}
   - component: {fileID: 670822544}
   m_Layer: 5
-  m_Name: Tower A Cost
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,7 +864,7 @@ GameObject:
   - component: {fileID: 1480176579}
   - component: {fileID: 1480176578}
   m_Layer: 5
-  m_Name: Tower C Cost
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
