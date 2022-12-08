@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class TowerOptionBehaviorScript : MonoBehaviour
 {
-    [SerializeField] private List<Transform> towerOptions = new List<Transform>();  //upgrade, change, sell
+    [SerializeField] private List<Transform> towerOptions = new List<Transform>();  //upgrade, change, sell buttons
     private List<Color> origTowerOptionColors = new List<Color>();
     private List<Color> origImageColors = new List<Color>();
     private List<Color> origCostTextColors = new List<Color>();
@@ -30,9 +30,18 @@ public class TowerOptionBehaviorScript : MonoBehaviour
 
     private void ColorChangeUpgrade()
     {
-        List<int> upgradeCosts = transform.parent.GetComponent<TurretScript>().GetUpgradeCost();
-        int upgradeCounter = transform.parent.GetComponent<TurretScript>().UpgradeCounter;
-        
+        List<int> upgradeCosts;
+        int upgradeCounter = 0;
+        if(transform.parent.GetComponent<TeslaTowerScript>() == null)
+        {
+            upgradeCosts = transform.parent.GetComponent<TurretScript>().GetUpgradeCost();
+            upgradeCounter = transform.parent.GetComponent<TurretScript>().UpgradeCounter;
+        }
+        else
+        {
+            upgradeCosts = transform.parent.GetComponent<TeslaTowerScript>().GetUpgradeCost();
+            upgradeCounter = transform.parent.GetComponent<TeslaTowerScript>().UpgradeCounter;
+        }
 
         if (upgradeCounter >= upgradeCosts.Count)
         {
@@ -60,9 +69,22 @@ public class TowerOptionBehaviorScript : MonoBehaviour
 
     private void TextChangeSell()
     {
-        List<int> upgradeCosts = transform.parent.GetComponent<TurretScript>().GetUpgradeCost();
-        int upgradeCounter = transform.parent.GetComponent<TurretScript>().UpgradeCounter;
-        int totalGariumSpent = transform.parent.GetComponent<TurretScript>().GariumCost;
+        List<int> upgradeCosts;
+        int upgradeCounter = 0;
+        int totalGariumSpent = 0;
+        if (transform.parent.GetComponent<TeslaTowerScript>() == null)
+        {
+            upgradeCosts = transform.parent.GetComponent<TurretScript>().GetUpgradeCost();
+            upgradeCounter = transform.parent.GetComponent<TurretScript>().UpgradeCounter;
+            totalGariumSpent = transform.parent.GetComponent<TurretScript>().GariumCost;
+        }
+        else
+        {
+            upgradeCosts = transform.parent.GetComponent<TeslaTowerScript>().GetUpgradeCost();
+            upgradeCounter = transform.parent.GetComponent<TeslaTowerScript>().UpgradeCounter;
+            totalGariumSpent = transform.parent.GetComponent<TeslaTowerScript>().GariumCost;
+        }
+        
         
         for (int i = 0; i < upgradeCounter; i++)
         {
@@ -75,7 +97,15 @@ public class TowerOptionBehaviorScript : MonoBehaviour
     private void TextChangeTarget()
     {
         //targetType = G : first to goal, S : strongest, W : weakest, R : first in range
-        char targetPriority = transform.parent.GetComponent<TurretScript>().TargetPriority;
+        char targetPriority;
+        if (transform.parent.GetComponent<TeslaTowerScript>() == null)
+        {
+            targetPriority = transform.parent.GetComponent<TurretScript>().TargetPriority;
+        }
+        else
+        {
+            targetPriority = transform.parent.GetComponent<TeslaTowerScript>().TargetPriority;
+        }
         towerOptions[2].Find("Canvas").Find("Text").gameObject.GetComponent<TMP_Text>().SetText(DefineTargetPriority(targetPriority));
 
     }
