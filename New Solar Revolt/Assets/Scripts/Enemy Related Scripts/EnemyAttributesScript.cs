@@ -80,6 +80,7 @@ public class EnemyAttributesScript : MonoBehaviour
         if(enemyHealth <= enemyMaxHealth / 2 && transform.name.Contains("VIP") && !transform.GetComponent<EnemyMovementScript>().Reverse)
         {
             transform.GetComponent<EnemyMovementScript>().WayPointIndex = transform.GetComponent<EnemyMovementScript>().WayPointIndex - 1;
+            transform.GetComponent<EnemyMovementScript>().Speed = transform.GetComponent<EnemyMovementScript>().Speed * 1.5f;
             transform.GetComponent<EnemyMovementScript>().Reverse = true;
             transform.GetComponent<EnemyMovementScript>().SetTargetWaypoint(transform.GetComponent<EnemyMovementScript>().WayPointIndex);
         }

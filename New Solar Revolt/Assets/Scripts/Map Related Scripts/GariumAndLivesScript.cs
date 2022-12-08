@@ -6,12 +6,12 @@ using UnityEngine;
 public class GariumAndLivesScript : MonoBehaviour
 {
     private static int lives;
-    private static int garium;
+    [SerializeField] private static int garium;
     private float second;
 
     void Start()
     {
-        garium = 300;
+        garium = 50;
         lives = 20;
         second = 0;
     }

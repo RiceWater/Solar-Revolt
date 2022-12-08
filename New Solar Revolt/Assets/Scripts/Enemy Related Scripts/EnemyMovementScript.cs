@@ -112,7 +112,11 @@ public class EnemyMovementScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Projectile"))
+        {
+            return;
+        }
+        else
         {
             Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
         }
@@ -121,6 +125,7 @@ public class EnemyMovementScript : MonoBehaviour
     public float Speed
     {
         get { return editableSpeed; }
+        set { editableSpeed = value; }
     }
 
     public bool Reverse
