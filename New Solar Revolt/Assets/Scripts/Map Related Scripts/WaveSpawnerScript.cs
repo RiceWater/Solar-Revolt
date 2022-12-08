@@ -7,7 +7,7 @@ public class WaveSpawnerScript : MonoBehaviour
     public Transform[] enemyPrefab;
     
     public Transform spawnPoint;
-    private float timeBetweenWaves = 20f;
+    private float timeBetweenWaves = 25f;
     public float countdown = 2f;
 
     //Size is the number of waves, string is enemies in each wave
@@ -30,7 +30,7 @@ public class WaveSpawnerScript : MonoBehaviour
         {
             GetEnemiesInWave();
             SpawnWave();
-            countdown = 100;
+            countdown = 500;
         }
         countdown -= Time.deltaTime;
     }
@@ -38,6 +38,17 @@ public class WaveSpawnerScript : MonoBehaviour
     public int WaveEnemiesCount
     {
         get { return waveEnemies.Count; }
+    }
+
+    public int WavesRemaining
+    {
+        get { return wavesRemaining; }
+    }
+
+
+    public List<string> Waves
+    {
+        get { return waves; }
     }
 
     private void GetEnemiesInWave()

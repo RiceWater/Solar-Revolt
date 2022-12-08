@@ -11,6 +11,8 @@ public class LevelUIScript : MonoBehaviour
     [SerializeField] private GameObject gariumImgUI;
     [SerializeField] private TextMeshProUGUI gariumTextUI;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private TextMeshProUGUI wavesTextUI;
+    [SerializeField] private WaveSpawnerScript waveSpawnerScript;
     private bool isGameOver;
 
     private void Start()
@@ -22,7 +24,13 @@ public class LevelUIScript : MonoBehaviour
     {
         livesTextUI.SetText(GariumAndLivesScript.Lives.ToString());
         gariumTextUI.SetText(GariumAndLivesScript.Garium.ToString());
+
+        int waveCounter = waveSpawnerScript.Waves.Count - waveSpawnerScript.WavesRemaining;
+        wavesTextUI.SetText("Wave " + waveCounter + "/" + waveSpawnerScript.Waves.Count); 
         
+
+
+
         if(GariumAndLivesScript.Lives <= 0 && !isGameOver)
         {
             Debug.Log("GAME OVER");
