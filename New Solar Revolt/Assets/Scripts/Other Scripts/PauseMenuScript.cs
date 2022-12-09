@@ -24,6 +24,7 @@ public class PauseMenuScript : MonoBehaviour
     public void ReturnToMainMenu()
     {
         Debug.Log("BACK TO MAIN MENU");
+        Time.timeScale = 1f;
         //change scene
     }
 }
