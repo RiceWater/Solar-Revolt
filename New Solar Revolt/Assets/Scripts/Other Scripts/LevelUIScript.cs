@@ -26,14 +26,10 @@ public class LevelUIScript : MonoBehaviour
         gariumTextUI.SetText(GariumAndLivesScript.Garium.ToString());
 
         int waveCounter = waveSpawnerScript.Waves.Count - waveSpawnerScript.WavesRemaining;
-        wavesTextUI.SetText("Wave " + waveCounter + "/" + waveSpawnerScript.Waves.Count); 
-        
-
-
+        wavesTextUI.SetText(waveCounter + "/" + waveSpawnerScript.Waves.Count); 
 
         if(GariumAndLivesScript.Lives <= 0 && !isGameOver)
         {
-            Debug.Log("GAME OVER");
             gameOverMenu.SetActive(true);
             Time.timeScale = 0f;
             isGameOver = true;
