@@ -48,10 +48,10 @@ GameObject:
   - component: {fileID: 2496284328950499462}
   - component: {fileID: 2496284328950499461}
   - component: {fileID: 3660929874798555543}
-  - component: {fileID: 8848649546476769755}
   - component: {fileID: 2496284328950499463}
   - component: {fileID: 8991294688234687943}
   - component: {fileID: 4726513870225028026}
+  - component: {fileID: 8797492388854788875}
   m_Layer: 0
   m_Name: Analgesic Regulars
   m_TagString: Enemy
@@ -68,7 +68,7 @@ Transform:
   m_GameObject: {fileID: 2496284328950499460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -47.4, y: -12.599999, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2634293097232130238}
@@ -116,8 +116,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.24094921, g: 0, b: 0.8784314, a: 1}
+  m_Sprite: {fileID: 1029972799, guid: d08286945f6131c409a4e185e52e56a3, type: 3}
+  m_Color: {r: 1, g: 0.4392157, b: 0.4392157, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,22 +148,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &8848649546476769755
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2496284328950499460}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &2496284328950499463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +191,32 @@ MonoBehaviour:
   lifeReduction: 4
   hasAnalgesicBlood: 1
   healthBar: {fileID: 647945142}
+--- !u!61 &8797492388854788875
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2496284328950499460}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.12623906, y: -0.12062836}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.490747, y: 2.0082338}
+  m_EdgeRadius: 0
 --- !u!1 &4945181730348255472
 GameObject:
   m_ObjectHideFlags: 0

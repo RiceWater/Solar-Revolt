@@ -240,10 +240,10 @@ GameObject:
   - component: {fileID: 6801539067739666662}
   - component: {fileID: 6801539067739666661}
   - component: {fileID: -3600273090924002825}
-  - component: {fileID: -8787709243223236165}
   - component: {fileID: 6801539067739666663}
   - component: {fileID: 2097003943}
   - component: {fileID: 4418187035786888154}
+  - component: {fileID: 1795705256}
   m_Layer: 0
   m_Name: Conscripts
   m_TagString: Enemy
@@ -340,22 +340,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &-8787709243223236165
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6801539067739666660}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &6801539067739666663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +383,32 @@ MonoBehaviour:
   lifeReduction: 1
   hasAnalgesicBlood: 0
   healthBar: {fileID: 228924305}
+--- !u!61 &1795705256
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6801539067739666660}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.087768555, y: -0.17553806}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.0690842, y: 1.6009789}
+  m_EdgeRadius: 0
 --- !u!1 &6991157809925114908
 GameObject:
   m_ObjectHideFlags: 0

@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Regular Sprites_0
+      name: Foreign Mercenaries Sprites_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac341dcce1ed493438b69ddef27d8e31
-      internalID: -762213172
+      spriteID: 43e69270dd2f5244fa4cc4ab8ea4aeb3
+      internalID: -1749187478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_1
+      name: Foreign Mercenaries Sprites_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc2c0e99538b1274d8f114eeb0725f51
-      internalID: 1266209702
+      spriteID: 77b790f3a9138294d9c21c289f4f2dcb
+      internalID: -624940743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_2
+      name: Foreign Mercenaries Sprites_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f63386ce2c21e0d4ea99d014867a2fd9
-      internalID: 407134351
+      spriteID: f309adeb7532c8343a56235d4953eb76
+      internalID: -2030428449
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_3
+      name: Foreign Mercenaries Sprites_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead78f7351e882549afee1db98ab6833
-      internalID: 591281919
+      spriteID: d6e70717fcb13394a900555eaa05624f
+      internalID: -406167506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_4
+      name: Foreign Mercenaries Sprites_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bd58feda90d2a9439051b99d135c333
-      internalID: -1585151188
+      spriteID: 7bc3e27f6e1a98645a1a250bd883a537
+      internalID: -523662863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_5
+      name: Foreign Mercenaries Sprites_5
       rect:
         serializedVersion: 2
         x: 160
@@ -236,14 +236,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99328ed76bee20741b50e9de84ecd656
-      internalID: -1509576858
+      spriteID: e83a85155170449469c34d04335d330c
+      internalID: -322087122
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_6
+      name: Foreign Mercenaries Sprites_6
       rect:
         serializedVersion: 2
         x: 192
@@ -257,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2996c0e2306b710409442db31071660c
-      internalID: -671593216
+      spriteID: e571ac851b0038443a9ac2786b8e2f90
+      internalID: -1088311362
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Regular Sprites_7
+      name: Foreign Mercenaries Sprites_7
       rect:
         serializedVersion: 2
         x: 224
@@ -278,8 +278,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a053be3edb142c4a9dac33ced83bca6
-      internalID: -1494379295
+      spriteID: 175b113bef4717842b09b24b5353a16a
+      internalID: 227979620
       vertices: []
       indices: 
       edges: []
@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Regular Sprites_4: -1585151188
-      Regular Sprites_7: -1494379295
-      Regular Sprites_3: 591281919
-      Regular Sprites_1: 1266209702
-      Regular Sprites_6: -671593216
-      Regular Sprites_0: -762213172
-      Regular Sprites_5: -1509576858
-      Regular Sprites_2: 407134351
+      Foreign Mercenaries Sprites_2: -2030428449
+      Foreign Mercenaries Sprites_1: -624940743
+      Foreign Mercenaries Sprites_5: -322087122
+      Foreign Mercenaries Sprites_7: 227979620
+      Foreign Mercenaries Sprites_6: -1088311362
+      Foreign Mercenaries Sprites_4: -523662863
+      Foreign Mercenaries Sprites_0: -1749187478
+      Foreign Mercenaries Sprites_3: -406167506
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
