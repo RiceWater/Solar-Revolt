@@ -16614,6 +16614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Transition
       objectReference: {fileID: 0}
+    - target: {fileID: 4158581499112206565, guid: 8ada7773e0941ce44b835369b71c939b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4158581499112206567, guid: 8ada7773e0941ce44b835369b71c939b, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -17625,6 +17629,10 @@ PrefabInstance:
     - target: {fileID: 3989139558560337631, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
       propertyPath: m_Name
       value: Level Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3989139560108077149, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3989139560122153971, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
       propertyPath: animator
