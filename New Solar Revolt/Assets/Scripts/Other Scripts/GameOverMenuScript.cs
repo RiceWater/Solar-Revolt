@@ -11,9 +11,4 @@ public class GameOverMenuScript : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1f;
     }
-
-    public void ReturnToMainMenu()
-    {
-        Debug.Log("Back to main menu");
-    }
 }

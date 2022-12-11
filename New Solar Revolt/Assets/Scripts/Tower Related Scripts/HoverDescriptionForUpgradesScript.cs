@@ -14,6 +14,7 @@ public class HoverDescriptionForUpgradesScript : MonoBehaviour, IPointerEnterHan
     {
         StopAllCoroutines();
         StartCoroutine(StartTimer());
+        Debug.Log("Here");
     }
 
     public void OnPointerExit(PointerEventData eventData)
