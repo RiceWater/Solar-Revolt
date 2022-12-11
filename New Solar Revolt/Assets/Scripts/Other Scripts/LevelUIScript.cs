@@ -6,9 +6,7 @@ using UnityEngine;
 public class LevelUIScript : MonoBehaviour
 {
     
-    [SerializeField] private GameObject livesImgUI;
     [SerializeField] private TextMeshProUGUI livesTextUI;
-    [SerializeField] private GameObject gariumImgUI;
     [SerializeField] private TextMeshProUGUI gariumTextUI;
     [SerializeField] private GameObject gameOverMenu;
     [SerializeField] private TextMeshProUGUI wavesTextUI;

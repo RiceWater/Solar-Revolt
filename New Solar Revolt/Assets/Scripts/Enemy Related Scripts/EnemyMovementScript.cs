@@ -30,9 +30,8 @@ public class EnemyMovementScript : MonoBehaviour
                 targetWayPoint = WaypointsScript.waypoints[waypointIndex];
                 setStartingPoint = true;
             }
-
         }
-
+        
         //Code for making enemy move from starting waypoint to ending waypoint
         Vector3 dir = targetWayPoint.position - transform.position;
         transform.Translate(editableSpeed * Time.deltaTime * dir.normalized);

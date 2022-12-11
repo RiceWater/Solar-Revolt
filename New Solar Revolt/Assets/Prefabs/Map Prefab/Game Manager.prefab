@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &340520131781040895
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 340520131781040864}
+  - component: {fileID: 340520131781040865}
+  - component: {fileID: 340520131781040866}
+  - component: {fileID: 340520131781040867}
+  - component: {fileID: 340520131781040868}
+  - component: {fileID: 340520131781040869}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &340520131781040864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1608262, y: 2.1578283, z: -0.4256112}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &340520131781040865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60b10b7a3d0395d45916132e63e5d588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &340520131781040866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed6b15993000494ebeb0e7604c6c4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab:
+  - {fileID: 6801539067739666662, guid: 5758c8ef83d021c40a38968b0b536ae2, type: 3}
+  - {fileID: 5914979864356785267, guid: 7c706448816b9b24286e6cda85f14ca6, type: 3}
+  - {fileID: 2496284328950499462, guid: a2d45dc2c8908144cb982550438c57fb, type: 3}
+  - {fileID: 1838912349895667643, guid: 19d53922c7ed88c43b217160f67128bd, type: 3}
+  - {fileID: 6801539067739666662, guid: 92d627eb4a17aa54da0fdb450852e5cc, type: 3}
+  - {fileID: 5914979864356785267, guid: c3048d4612eaf1249aac300af92253af, type: 3}
+  - {fileID: 2496284328950499462, guid: aa15f0ee2095e27409387a689d395a03, type: 3}
+  - {fileID: 1838912349895667643, guid: b404542a8aeced3449effacb7aecec7c, type: 3}
+  - {fileID: 1838912349895667643, guid: 0aa3acb2889d57d4b81606fab093baf8, type: 3}
+  spawnPoint: {fileID: 0}
+  countdown: 6
+  waves:
+  - 8
+  - 1232
+  - 2222
+  waveStarter: {fileID: 0}
+--- !u!114 &340520131781040867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56829015daf077a4b9221b9c316ce2d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+--- !u!114 &340520131781040868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f70b7d6529d55314ba32f0f68c73c627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &340520131781040869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 340520131781040895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0340a31c03058a4b929ca571173d35c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  livesImgUI: {fileID: 0}
+  livesTextUI: {fileID: 0}
+  gariumImgUI: {fileID: 0}
+  gariumTextUI: {fileID: 0}
+  gameOverMenu: {fileID: 0}
+  wavesTextUI: {fileID: 0}
+  waveSpawnerScript: {fileID: 340520131781040866}
