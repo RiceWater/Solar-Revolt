@@ -9,22 +9,13 @@ public class PauseMenuScript : MonoBehaviour
 
     public void PauseGame()
     {
-        Debug.Log("GAME PAUSED");
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
     public void ResumeGame()
     {
-        Debug.Log("GAME RESUMED");
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    public void ReturnToMainMenu()
-    {
-        Debug.Log("BACK TO MAIN MENU");
-        Time.timeScale = 1f;
-        //change scene
     }
 }
