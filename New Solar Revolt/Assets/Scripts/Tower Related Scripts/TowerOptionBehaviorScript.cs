@@ -12,8 +12,10 @@ public class TowerOptionBehaviorScript : MonoBehaviour
     private List<Color> origCostTextColors = new List<Color>();
     private Color disabledColor = new Color(0.25f, 0.25f, 0.25f, 1);
     private Color disabledColorText = new Color(0.5f, 0.5f, 0.5f, 1);
+    private GariumAndLivesScript gariumAndLivesScript;
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
         for (int i = 0; i < towerOptions.Count; i++)
         {
             origTowerOptionColors.Add(towerOptions[i].GetComponent<SpriteRenderer>().color);
@@ -54,7 +56,7 @@ public class TowerOptionBehaviorScript : MonoBehaviour
         }
 
         towerOptions[0].Find("Canvas").Find("Text").gameObject.GetComponent<TMP_Text>().SetText(upgradeCosts[upgradeCounter].ToString());
-        if (GariumAndLivesScript.Garium < upgradeCosts[upgradeCounter])
+        if (gariumAndLivesScript.Garium < upgradeCosts[upgradeCounter])
         {
             towerOptions[0].GetComponent<SpriteRenderer>().color = disabledColor;
             towerOptions[0].Find("Canvas").Find("Image").gameObject.GetComponent<Image>().color = disabledColor;

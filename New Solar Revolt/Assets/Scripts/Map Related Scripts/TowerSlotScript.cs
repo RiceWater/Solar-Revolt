@@ -8,9 +8,11 @@ public class TowerSlotScript : MonoBehaviour
     private RaycastHit2D[] rc;
     private GameObject currTower;
     private Transform towerSlotTransform;
+    private GariumAndLivesScript gariumAndLivesScript;
 
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
         currTower = null;
     }
 
@@ -76,22 +78,22 @@ public class TowerSlotScript : MonoBehaviour
         {
             case "Tower A":
                 towerCost = towerPrefabs[0].GetComponent<TurretScript>().GariumCost;
-                if (GariumAndLivesScript.Garium < towerCost)
+                if (gariumAndLivesScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumAndLivesScript.Garium -= towerCost;
+                gariumAndLivesScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[0]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
                 break;
             case "Tower B":
                 towerCost = towerPrefabs[1].GetComponent<TurretScript>().GariumCost;
-                if (GariumAndLivesScript.Garium < towerCost)
+                if (gariumAndLivesScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumAndLivesScript.Garium -= towerCost;
+                gariumAndLivesScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[1]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);
@@ -99,11 +101,11 @@ public class TowerSlotScript : MonoBehaviour
                 break;
             case "Tower C":
                 towerCost = towerPrefabs[2].GetComponent<TeslaTowerScript>().GariumCost;
-                if (GariumAndLivesScript.Garium < towerCost)
+                if (gariumAndLivesScript.Garium < towerCost)
                 {
                     return;
                 }
-                GariumAndLivesScript.Garium -= towerCost;
+                gariumAndLivesScript.Garium -= towerCost;
                 currTower = Instantiate(towerPrefabs[2]);
                 currTower.transform.position = new Vector3(transform.position.x, transform.position.y, -1);
                 transform.position = new Vector3(transform.position.x, transform.position.y, 0);

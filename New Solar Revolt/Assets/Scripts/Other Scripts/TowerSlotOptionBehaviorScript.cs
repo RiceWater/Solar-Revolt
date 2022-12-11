@@ -13,10 +13,11 @@ public class TowerSlotOptionBehaviorScript : MonoBehaviour
     private List<Color> origCostTextColors = new List<Color>();
     private Color disabledColor = new Color(0.25f, 0.25f, 0.25f, 1);
     private Color disabledColorText = new Color(0.5f, 0.5f, 0.5f, 1);
-
+    private GariumAndLivesScript gariumAndLivesScript;
     private void Start()
     {
-        for(int i = 0; i < towerSlotOptions.Count; i++)
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
+        for (int i = 0; i < towerSlotOptions.Count; i++)
         {
             origTowerSlotOptionColors.Add(towerSlotOptions[i].GetComponent<SpriteRenderer>().color);
             origImageColors.Add(towerSlotOptions[i].Find("Canvas").Find("Image").gameObject.GetComponent<Image>().color);
@@ -32,7 +33,7 @@ public class TowerSlotOptionBehaviorScript : MonoBehaviour
     private void ColorChangeForTurretScript(int index)
     {
         towerSlotOptions[index].Find("Canvas").Find("Text").gameObject.GetComponent<TMP_Text>().SetText(towerPrefabs[index].GetComponent<TurretScript>().GariumCost.ToString());
-        if (GariumAndLivesScript.Garium < towerPrefabs[index].GetComponent<TurretScript>().GariumCost)
+        if (gariumAndLivesScript.Garium < towerPrefabs[index].GetComponent<TurretScript>().GariumCost)
         {
             towerSlotOptions[index].GetComponent<SpriteRenderer>().color = disabledColor;
             towerSlotOptions[index].Find("Canvas").Find("Image").gameObject.GetComponent<Image>().color = disabledColor;
@@ -49,7 +50,7 @@ public class TowerSlotOptionBehaviorScript : MonoBehaviour
     private void ColorChangeForTeslaScript()
     {
         towerSlotOptions[2].Find("Canvas").Find("Text").gameObject.GetComponent<TMP_Text>().SetText(towerPrefabs[2].GetComponent<TeslaTowerScript>().GariumCost.ToString());
-        if (GariumAndLivesScript.Garium < towerPrefabs[2].GetComponent<TeslaTowerScript>().GariumCost)
+        if (gariumAndLivesScript.Garium < towerPrefabs[2].GetComponent<TeslaTowerScript>().GariumCost)
         {
             towerSlotOptions[2].GetComponent<SpriteRenderer>().color = disabledColor;
             towerSlotOptions[2].Find("Canvas").Find("Image").gameObject.GetComponent<Image>().color = disabledColor;
