@@ -15,10 +15,10 @@ public class TransitionsScript : MonoBehaviour
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
     }
-
+    
     public void onFadeComplete()
     {
-        
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(levelToLoad); 
     }
+    
 }

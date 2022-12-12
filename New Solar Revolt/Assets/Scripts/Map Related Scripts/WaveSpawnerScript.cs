@@ -52,7 +52,6 @@ public class WaveSpawnerScript : MonoBehaviour
             }
             if(lastEnemies.Count == 0 && gariumAndLivesScript.Lives > 0)
             {
-                Debug.Log("Congrats, you win the game!");
                 gameWon = true;
             }
            

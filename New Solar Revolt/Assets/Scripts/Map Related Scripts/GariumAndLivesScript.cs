@@ -11,7 +11,7 @@ public class GariumAndLivesScript : MonoBehaviour
 
     void Start()
     {
-        garium = 140; 
+        garium = 150; 
         lives = 20;
         second = 0;
     }

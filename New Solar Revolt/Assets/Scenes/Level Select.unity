@@ -722,7 +722,6 @@ GameObject:
   - component: {fileID: 1051881451}
   - component: {fileID: 1051881450}
   - component: {fileID: 1051881453}
-  - component: {fileID: 1051881449}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -750,18 +749,6 @@ RectTransform:
   m_AnchoredPosition: {x: -588.1675, y: 303.27014}
   m_SizeDelta: {x: 108.8271, y: 106.9121}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1051881449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1051881447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501be1d4962d95b4f89fc4221dee196d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1051881450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,7 +1061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d75f3c61fa7afe49bd55a94ee952ab8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9acf50ec77db1a24497180b5c5ee56a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
