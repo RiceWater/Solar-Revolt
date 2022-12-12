@@ -40,9 +40,8 @@ public class LevelUIScript : MonoBehaviour
         
         if (waveSpawnerScript.GameWon && !congratsOn)
         {
-            congratulationsMenu.SetActive(true);
-            Time.timeScale = 0f;
             congratsOn = true;
+            Invoke("ShowCongratsMenu", 1.5f);
 
             //For unlocking next level
             string sceneName = SceneManager.GetActiveScene().name;
@@ -55,6 +54,12 @@ public class LevelUIScript : MonoBehaviour
             
         }
         
+    }
+
+    private void ShowCongratsMenu()
+    {
+        congratulationsMenu.SetActive(true);
+        Time.timeScale = 0f;
     }
 
 }

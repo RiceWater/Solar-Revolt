@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b688791b8f4794fb7a4f6c1bfde1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.2
+  speed: 4.5
 --- !u!114 &8991294688234687943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,8 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646e4915ebf49b34a8bac95d143713ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGarium: 15
-  enemyHealth: 90
+  enemyGarium: 17
+  enemyHealth: 110
   lifeReduction: 4
   hasAnalgesicBlood: 0
   healthBar: {fileID: 196539739}
