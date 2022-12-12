@@ -1180,7 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c5174cca2e83864d87300ac64a8b93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
+  input1: 
   fireRateInfo: 
   damageInfo: 
 --- !u!1 &1181074617
@@ -2933,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Sell this tower and earn some garium back
+  input1: Sell the tower to get some garium back!
   fireRateInfo: 'Return Value: ~60%'
   damageInfo: 
 --- !u!1 &5680814682970937624
@@ -3051,7 +3051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Change Tower Target Priority
+  input1: Change target priority!
   fireRateInfo: 
   damageInfo: 
 --- !u!1 &5818828991540344569
@@ -3169,7 +3169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32815dfa4defcf445a566b8e1a1e2fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: Range + 20%
+  input1: Range +20%
   fireRateInfo: Fire Rate + 20%
   damageInfo: Damage + 20%
 --- !u!1 &6122865469739058852

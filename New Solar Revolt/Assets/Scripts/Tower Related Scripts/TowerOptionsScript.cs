@@ -100,9 +100,9 @@ public class TowerOptionsScript : MonoBehaviour
                 {
                     //range (+10%)
                     towerRadius.radius = towerRadius.radius * 11 / 10;
-                    //damage (+40%)
+                    //damage (+30%)
                     towerRadius.transform.GetComponent<TurretScript>().BulletDamage =
-                        towerRadius.transform.GetComponent<TurretScript>().BulletDamage * 7 / 5;
+                        towerRadius.transform.GetComponent<TurretScript>().BulletDamage * 1.3f;
                     //firerate (+20%)
                     towerRadius.transform.GetComponent<TurretScript>().FireRate =
                         towerRadius.transform.GetComponent<TurretScript>().FireRate * 6 / 5;

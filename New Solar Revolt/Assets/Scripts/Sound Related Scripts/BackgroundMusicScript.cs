@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BackgroundMusicScript : MonoBehaviour
 {
@@ -17,4 +18,5 @@ public class BackgroundMusicScript : MonoBehaviour
         bgMusicInstance = this;
         DontDestroyOnLoad(this);
     }
+
 }
