@@ -4151,20 +4151,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[0]
-      value: 11111
+      value: 0000
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[1]
-      value: 111122
+      value: 001011
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[2]
-      value: 12121211
+      value: 1011012
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[3]
-      value: 111133
+      value: 12222112
       objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040867, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1815704230}
     - target: {fileID: 340520131781040867, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: camera
       value: 

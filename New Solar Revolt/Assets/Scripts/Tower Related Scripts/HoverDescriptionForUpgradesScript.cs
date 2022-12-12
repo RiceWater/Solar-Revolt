@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class HoverDescriptionForUpgradesScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public string name;
+    public string input1;
     public string fireRateInfo;
     public string damageInfo;
     private float timeToWait = 0.5f;
@@ -26,20 +26,20 @@ public class HoverDescriptionForUpgradesScript : MonoBehaviour, IPointerEnterHan
     {
         if(transform.root.GetComponent<TurretScript>() != null)
         {
-            name = transform.root.GetComponent<CircleCollider2D>().radius.ToString();
+            input1 = transform.root.GetComponent<CircleCollider2D>().radius.ToString();
             fireRateInfo = transform.root.GetComponent<TurretScript>().FireRate.ToString();
             damageInfo = transform.root.GetComponent<TurretScript>().BulletDamage.ToString();
         }
         else if (transform.root.GetComponent<TeslaTowerScript>() != null)
         {
-            name = transform.root.GetComponent<CircleCollider2D>().radius.ToString();
+            input1 = transform.root.GetComponent<CircleCollider2D>().radius.ToString();
             fireRateInfo = transform.root.GetComponent<TeslaTowerScript>().FireRate.ToString();
             damageInfo = transform.root.GetComponent<TeslaTowerScript>().BulletDamage.ToString();
         }
-        name = "Range: " + name;
+        input1 = "Range: " + input1;
         fireRateInfo = "Fire Rate: " + fireRateInfo;
         damageInfo = "Damage per Shot: " + damageInfo;
-        HoverDescriptionManagerScript.OnMouseOver(name, fireRateInfo, damageInfo, Input.mousePosition);
+        HoverDescriptionManagerScript.OnMouseOver(input1, fireRateInfo, damageInfo, Input.mousePosition);
     }
 
     private IEnumerator StartTimer()
