@@ -355,8 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 646e4915ebf49b34a8bac95d143713ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyGarium: 27
-  enemyHealth: 150
+  enemyGarium: 30
+  enemyHealth: 180
   lifeReduction: 5
   hasAnalgesicBlood: 1
   healthBar: {fileID: 1974758955}

@@ -22,6 +22,10 @@ public class TowerSlotScript : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, -2);
         }
+        else
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

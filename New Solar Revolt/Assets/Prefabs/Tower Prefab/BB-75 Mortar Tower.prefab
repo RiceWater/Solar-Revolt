@@ -2714,7 +2714,7 @@ MonoBehaviour:
   bulletSpawnLocation: {fileID: 529831527767011737}
   gariumCost: 90
   fireRate: 0.5
-  upgradeCost: 5a0000007300000091000000
+  upgradeCost: 5a00000082000000b4000000
   bulletPrefab: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}
   enemiesInRange: []
 --- !u!212 &2169331429717987488

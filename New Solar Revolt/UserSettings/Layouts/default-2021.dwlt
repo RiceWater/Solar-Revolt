@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 110
+  controlID: 71
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 363.19995
     height: 730.8
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 111
+  controlID: 72
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 112
+  controlID: 73
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -268,8 +268,8 @@ MonoBehaviour:
     y: 0
     width: 882.4
     height: 432
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 16}
@@ -382,37 +382,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs/Tower Prefab
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/Tower Prefab
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\user\Documents\GitHub\Solar-Revolt-New-Repo\New Solar
     Revolt
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0e6a0000
-    m_LastClickedID: 27150
-    m_ExpandedIDs: 0000000080680000ca690000cc690000ce690000d0690000e869000000ca9a3b
+    scrollPos: {x: 0, y: 114.20001}
+    m_SelectedIDs: 28610000
+    m_LastClickedID: 24872
+    m_ExpandedIDs: 00000000ec600000ee600000f0600000f2600000f4600000f6600000206100002861000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: Menu Prefab
+      m_OriginalName: Menu Prefab
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 24868
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 5}
     m_SearchString: 
@@ -426,7 +426,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000080680000ca690000cc690000ce690000d0690000d2690000d4690000
+    m_ExpandedIDs: 00000000ec600000ee600000f0600000f2600000f4600000f6600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -556,7 +556,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: aac6feffe2c6feff7ec8feffbac8feffe6c8feff46d6feff76e4feffa6f2feff0afcfeff32fcfeff4efcfeff7e3bffff7e58ffff7668ffff786dffffe66fffff3a75ffff2c76ffff0a80ffff0282ffff5684ffff8884ffff2685ffffea8affff7e8cffff088fffff6492fffffa92ffffc293ffffd295ffff4c9effffde9fffff1aa1ffff74a1ffff94d9ffff86daffffe6daffffacdfffff46e0fffff4e1ffff1ee3ffff88e3ffffe2e3ffff24e5ffff94e9ffff5ceaffff64eaffffa2eaffff08ebffffcafaffff84990000e6990000309a00009a9a0000ae9a00009e9b0000bc9b0000089c00001c9c00005ca00000e0a1000052a300004aa50000bca60000beab0000b4be00001ec6000028c6000096cc0000
+      m_ExpandedIDs: 8239fcffb839fcff583bfcff983bfcffc83bfcff5c48fcff9056fcffc464fcff2c6efcff586efcff786efcffea6efcffc07bfcff4085fcffaa93fcff1ca2fcffe8aefcff42bdfcff64d2fcff8ae7fcffac32fdff1641fdff964afdff0059fdff9a66fdff0475fdff3683fdffc691fdff30a0fdffc0aefdffc2bdfdff00c8fdff90d6fdff0ce5fdffccf2fdff3601feffa00ffeff2019feffe026feff7035feffda43feff5a4dfeffee5bfeffae69feff1878feff8286feff1490feffa49efeff34adfeffa8d3feff12e2feff7cf0fefffcf9feffd808ffff6817ffff1226ffff5237ffff0846ffffc454ffff5c63fffff670ffff607fffffca8dffff349cffffeaaaffff6ab4ffffd4c2ffff8ed4ffffe6e2ffffb4ecffffa2edffff2afbffff106f0000706f0000886f0000a8fe0000d69c010032ab0100dcba0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
