@@ -11,8 +11,10 @@ public class TowerOptionsScript : MonoBehaviour
 
     private char[] towerTargetOptions = { 'G', 'R', 'S', 'W' };
     private int towerTargetOptionsIndex;
+    private GariumAndLivesScript gariumAndLivesScript;
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
         Color spriteColor = towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color;
         towerRangeDisplayPF.GetComponent<SpriteRenderer>().material.color = new Color(spriteColor.r, spriteColor.g, spriteColor.b, 0.5f);
         towerRangeDisplayPF.SetActive(false);
@@ -92,7 +94,7 @@ public class TowerOptionsScript : MonoBehaviour
         {
             upgradeCosts = towerRadius.transform.GetComponent<TurretScript>().GetUpgradeCost();
             upgradeCounter = towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter;
-            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
+            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= gariumAndLivesScript.Garium)
             {
                 if (towerRadius.gameObject.name.Contains("BB-75"))
                 {
@@ -117,7 +119,7 @@ public class TowerOptionsScript : MonoBehaviour
                         towerRadius.transform.GetComponent<TurretScript>().FireRate * 7 / 5;
                 }
                 //counter and money
-                GariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
+                gariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
                 towerRadius.transform.GetComponent<TurretScript>().UpgradeCounter++;
             }
         }
@@ -125,7 +127,7 @@ public class TowerOptionsScript : MonoBehaviour
         {
             upgradeCosts = towerRadius.transform.GetComponent<TeslaTowerScript>().GetUpgradeCost();
             upgradeCounter = towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter;
-            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= GariumAndLivesScript.Garium)
+            if (upgradeCounter < upgradeCosts.Count && upgradeCosts[upgradeCounter] <= gariumAndLivesScript.Garium)
             {
                 if (towerRadius.gameObject.name.Contains("XM-T50"))
                 {
@@ -140,7 +142,7 @@ public class TowerOptionsScript : MonoBehaviour
                 }
             }
             //counter and money
-            GariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
+            gariumAndLivesScript.Garium -= upgradeCosts[upgradeCounter];
             towerRadius.transform.GetComponent<TeslaTowerScript>().UpgradeCounter++;
         }
     }
@@ -159,7 +161,7 @@ public class TowerOptionsScript : MonoBehaviour
                 totalGariumSpent += upgradeCosts[i];
             }
 
-            GariumAndLivesScript.Garium += (totalGariumSpent  * 3 / 5);
+            gariumAndLivesScript.Garium += (totalGariumSpent  * 3 / 5);
         }
         else if (towerRadius.transform.GetComponent<TeslaTowerScript>() != null)
         {
@@ -172,7 +174,7 @@ public class TowerOptionsScript : MonoBehaviour
                 totalGariumSpent += upgradeCosts[i];
             }
 
-            GariumAndLivesScript.Garium += (totalGariumSpent * 3 / 5);
+            gariumAndLivesScript.Garium += (totalGariumSpent * 3 / 5);
         }
         Destroy(transform.root.gameObject);
     }

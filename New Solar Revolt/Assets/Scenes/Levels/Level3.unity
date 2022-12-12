@@ -3276,6 +3276,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 242170350}
+    - target: {fileID: 3429005902409127771, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3989139558560337627, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3376,6 +3380,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 242170350}
+    - target: {fileID: 6649063572169109086, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 242170350}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
 --- !u!1 &308433059 stripped
@@ -3416,6 +3424,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &308433063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4663516177783938699, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+  m_PrefabInstance: {fileID: 308433058}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &329880057
 GameObject:
   m_ObjectHideFlags: 0
@@ -16829,6 +16842,34 @@ PrefabInstance:
       propertyPath: waveStarter
       value: 
       objectReference: {fileID: 2091287209}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[0]
+      value: 1111
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 121212
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 1212332
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 222222
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[4]
+      value: 22332
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[5]
+      value: 3334
+      objectReference: {fileID: 0}
     - target: {fileID: 340520131781040867, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: camera
       value: 
@@ -16849,6 +16890,10 @@ PrefabInstance:
       propertyPath: gariumTextUI
       value: 
       objectReference: {fileID: 308433062}
+    - target: {fileID: 340520131781040869, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: congratulationsMenu
+      value: 
+      objectReference: {fileID: 308433063}
     - target: {fileID: 340520131781040895, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: m_Name
       value: Game Manager

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovementScript : MonoBehaviour
 {
+
     [SerializeField] private float speed;
     private Transform targetWayPoint;
     private int waypointIndex;
@@ -13,8 +14,13 @@ public class EnemyMovementScript : MonoBehaviour
     private float stunDuration;
 
     private bool reverse; //for VIP
+
+    private GariumAndLivesScript gariumAndLivesScript;
+
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
+
         editableSpeed = speed;
         waypointIndex = 1;
         setStartingPoint = false;
@@ -77,10 +83,10 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
-            GariumAndLivesScript.Lives -= transform.GetComponent<EnemyAttributesScript>().LifeReduction;
-            if (GariumAndLivesScript.Lives < 0)
+            gariumAndLivesScript.Lives -= transform.GetComponent<EnemyAttributesScript>().LifeReduction;
+            if (gariumAndLivesScript.Lives < 0)
             {
-                GariumAndLivesScript.Lives = 0;
+                gariumAndLivesScript.Lives = 0;
             }
             Destroy(gameObject);
         }
@@ -101,7 +107,7 @@ public class EnemyMovementScript : MonoBehaviour
         }
         else
         {
-            GariumAndLivesScript.Lives = 0;
+            gariumAndLivesScript.Lives = 0;
         }
     }
     public void SetTargetWaypoint(int index)

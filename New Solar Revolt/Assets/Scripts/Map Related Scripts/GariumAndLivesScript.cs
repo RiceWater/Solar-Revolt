@@ -5,13 +5,13 @@ using UnityEngine;
 //to rename file for better suit
 public class GariumAndLivesScript : MonoBehaviour
 {
-    private static int lives;
-    private static int garium;
+    private int lives;
+    private int garium;
     private float second;
 
     void Start()
     {
-        garium = 140;
+        garium = 150; 
         lives = 20;
         second = 0;
     }
@@ -23,13 +23,13 @@ public class GariumAndLivesScript : MonoBehaviour
         IncrementGarium();
     }
 
-    public static int Garium
+    public  int Garium
     {
         get { return garium; }
         set { garium = value; }
     }
 
-    public static int Lives
+    public int Lives
     {
         get { return lives; }
         set { lives = value; }

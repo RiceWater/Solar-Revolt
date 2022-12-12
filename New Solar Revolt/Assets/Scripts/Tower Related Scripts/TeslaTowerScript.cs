@@ -148,6 +148,10 @@ public class TeslaTowerScript : MonoBehaviour
 
         foreach (GameObject enemy in enemiesInRange)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             float currEnemyDistance = enemy.GetComponent<EnemyDistanceTraveledScript>().getDistanceTraveled();
             if (currEnemyDistance > highestDistance)
             {
@@ -170,8 +174,19 @@ public class TeslaTowerScript : MonoBehaviour
         {
             return;
         }
+        foreach (GameObject enemy in enemiesInRange)
+        {
+            if (enemy == null)
+            {
+                continue;
+            }
+            else
+            {
+                target = enemy.transform;
+                break;
+            }
+        }
 
-        target = enemiesInRange[0].transform;
     }
 
     //Targets the enemy with the highest health 
@@ -191,6 +206,10 @@ public class TeslaTowerScript : MonoBehaviour
         float maxHealth = -10000;
         foreach (GameObject enemy in enemiesInRange)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             float currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth > maxHealth)
             {
@@ -217,6 +236,10 @@ public class TeslaTowerScript : MonoBehaviour
         float minHealth = 10000;
         foreach (GameObject enemy in enemiesInRange)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             float currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth < minHealth)
             {

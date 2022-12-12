@@ -19,8 +19,15 @@ public class WaveSpawnerScript : MonoBehaviour
     private int stringcounter = 0;
 
     [SerializeField] private GameObject waveStarter;
+
+    private GariumAndLivesScript gariumAndLivesScript;
+
+    private List<GameObject> lastEnemies = new List<GameObject>();
+    private bool lastWave = false;
+    private bool gameWon = false;
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
         wavesRemaining = waves.Count;
         
     }
@@ -33,8 +40,28 @@ public class WaveSpawnerScript : MonoBehaviour
             countdown = 500;
         }
         countdown -= Time.deltaTime;
+        
+        if (lastWave)
+        {
+            for(int i = 0; i < lastEnemies.Count; i++)
+            {
+                if(lastEnemies[i] == null)
+                {
+                    lastEnemies.RemoveAt(i);
+                }
+            }
+            if(lastEnemies.Count == 0 && gariumAndLivesScript.Lives > 0)
+            {
+                gameWon = true;
+            }
+           
+        }
     }
-
+    
+    public bool GameWon
+    {
+        get { return gameWon; }
+    }
     public int WaveEnemiesCount
     {
         get { return waveEnemies.Count; }
@@ -78,18 +105,30 @@ public class WaveSpawnerScript : MonoBehaviour
         waveStarter.SetActive(false);
         for(int i = 0; i < waveEnemies.Count; i++)
         {
-            Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation);
+            if (stringcounter == waves.Count)
+            {
+                lastEnemies.Add(Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation).gameObject);
+            }
+            else
+            {
+                Instantiate(enemyPrefab[waveEnemies[i]], spawnPoint.position, spawnPoint.rotation);
+            }
             yield return new WaitForSeconds(1);
         }
         waveEnemies.Clear();
         countdown = timeBetweenWaves;
         yield return new WaitForSeconds(4);
         waveStarter.SetActive(stringcounter < waves.Count);
+        if(stringcounter == waves.Count)
+        {
+            lastWave = true;
+        }
+        
     }
 
     public void StartWave()
     {
-        GariumAndLivesScript.Garium += (int)Mathf.Ceil(countdown * 5 / 3);
+        gariumAndLivesScript.Garium += (int)Mathf.Ceil(countdown * 5 / 3);
         countdown = 0f;
     }
 }

@@ -16345,6 +16345,30 @@ PrefabInstance:
       propertyPath: waveStarter
       value: 
       objectReference: {fileID: 240362177}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[0]
+      value: 11122
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[1]
+      value: 1111221
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[2]
+      value: 1212211
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[3]
+      value: 3212111
+      objectReference: {fileID: 0}
+    - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: waves.Array.data[4]
+      value: 1133132
+      objectReference: {fileID: 0}
     - target: {fileID: 340520131781040867, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: camera
       value: 
@@ -16365,6 +16389,10 @@ PrefabInstance:
       propertyPath: gariumTextUI
       value: 
       objectReference: {fileID: 1039126000}
+    - target: {fileID: 340520131781040869, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
+      propertyPath: congratulationsMenu
+      value: 
+      objectReference: {fileID: 2046405820}
     - target: {fileID: 340520131781040895, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: m_Name
       value: Game Manager
@@ -17546,6 +17574,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 974533389}
+    - target: {fileID: 3429005902409127771, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3989139558560337627, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -17643,6 +17675,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 974533389}
     - target: {fileID: 4996133168944886267, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 974533389}
+    - target: {fileID: 6649063572169109086, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 974533389}
@@ -18036,6 +18072,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &2046405820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4663516177783938699, guid: 13ce64c46ee582c4e87a3f7c546f524c, type: 3}
+  m_PrefabInstance: {fileID: 1899501471}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2129300102
 PrefabInstance:
   m_ObjectHideFlags: 0

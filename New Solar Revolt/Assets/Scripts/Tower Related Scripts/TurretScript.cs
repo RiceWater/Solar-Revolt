@@ -160,6 +160,10 @@ public class TurretScript : MonoBehaviour
 
         foreach (GameObject enemy in enemiesInRange)
         {
+            if(enemy == null)
+            {
+                continue;
+            }
             float currEnemyDistance = enemy.GetComponent<EnemyDistanceTraveledScript>().getDistanceTraveled();
             if (currEnemyDistance > highestDistance)
             {
@@ -182,8 +186,19 @@ public class TurretScript : MonoBehaviour
         {
             return;
         }
-
-        target = enemiesInRange[0].transform;
+        foreach(GameObject enemy in enemiesInRange)
+        {
+            if (enemy == null)
+            {
+                continue;
+            }
+            else
+            {
+                target = enemy.transform;
+                break;
+            }
+        }
+        
     }
 
     //Targets the enemy with the highest health 
@@ -203,6 +218,10 @@ public class TurretScript : MonoBehaviour
         float maxHealth = -10000;
         foreach (GameObject enemy in enemiesInRange)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             float currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth > maxHealth)
             {
@@ -229,6 +248,10 @@ public class TurretScript : MonoBehaviour
         float minHealth = 10000;
         foreach (GameObject enemy in enemiesInRange)
         {
+            if (enemy == null)
+            {
+                continue;
+            }
             float currEnemyHealth = enemy.GetComponent<EnemyAttributesScript>().EnemyHealth;
             if (currEnemyHealth < minHealth)
             {

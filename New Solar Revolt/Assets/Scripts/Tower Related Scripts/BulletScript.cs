@@ -103,7 +103,7 @@ public class BulletScript : MonoBehaviour
             if (enemy)
             {
                 //Stun
-                bool canStun = Random.Range(0, 101) <= 15;  //15% chance to stun enemies
+                bool canStun = Random.Range(0, 101) <= 20;  //20% chance to stun enemies
                 if (canStun)
                 {
                     enemy.gameObject.GetComponent<EnemyMovementScript>().Stun(2f);

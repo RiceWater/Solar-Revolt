@@ -12,10 +12,13 @@ public class EnemyAttributesScript : MonoBehaviour
     [SerializeField] private bool hasAnalgesicBlood;
     private bool isImmortal;
 
+    private GariumAndLivesScript gariumAndLivesScript;
+
     [SerializeField] private HealthBarScript healthBar;
     private float enemyMaxHealth;
     private void Start()
     {
+        gariumAndLivesScript = GameObject.Find("Game Manager").GetComponent<GariumAndLivesScript>();
         enemyMaxHealth = enemyHealth;
         healthBar.SetHealthBar(enemyHealth, enemyMaxHealth);
     }
@@ -56,7 +59,7 @@ public class EnemyAttributesScript : MonoBehaviour
     {
         if (enemyHealth < 1)
         {
-            GariumAndLivesScript.Garium += enemyGarium;
+            gariumAndLivesScript.Garium += enemyGarium;
             Destroy(gameObject);
         }
     }
