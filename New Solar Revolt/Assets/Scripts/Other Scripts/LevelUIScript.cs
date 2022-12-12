@@ -2,6 +2,7 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelUIScript : MonoBehaviour
 {
@@ -36,14 +37,24 @@ public class LevelUIScript : MonoBehaviour
             Time.timeScale = 0f;
             isGameOver = true;
         }
-
+        
         if (waveSpawnerScript.GameWon && !congratsOn)
         {
             congratulationsMenu.SetActive(true);
             Time.timeScale = 0f;
             congratsOn = true;
 
+            //For unlocking next level
+            string sceneName = SceneManager.GetActiveScene().name;
+            int level = sceneName[sceneName.Length - 1] - '0';
+
+            if (level < LevelLockScript.unlockedLevels.Length)
+            {
+                LevelLockScript.unlockedLevels[level] = true;
+            }
+            
         }
+        
     }
 
 }
