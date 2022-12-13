@@ -16359,11 +16359,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[2]
-      value: 00013
+      value: 01112
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[3]
-      value: 112223
+      value: 110023
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[4]
