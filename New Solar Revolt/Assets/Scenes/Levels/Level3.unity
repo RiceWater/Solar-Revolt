@@ -16852,7 +16852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[1]
-      value: 00022
+      value: 000001010
       objectReference: {fileID: 0}
     - target: {fileID: 340520131781040866, guid: 48b52cea3036be04488f35876aeab1ba, type: 3}
       propertyPath: waves.Array.data[2]

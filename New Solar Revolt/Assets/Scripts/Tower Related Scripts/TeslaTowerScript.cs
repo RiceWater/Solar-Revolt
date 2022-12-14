@@ -11,11 +11,13 @@ public class TeslaTowerScript : MonoBehaviour
     [SerializeField] private int gariumCost;
     [SerializeField] private float fireRate;
     [SerializeField] private List<int> upgradeCost = new List<int>();
+    [SerializeField] private Animator towerAnimator;
+    [SerializeField] private GameObject shockAreaGameObject;
     private int upgradeCounter;
     private float fireCountdown;
     private float bulletDamage;
     private Transform target;
-
+    private float time = 0;
     //For prefabs
     [Header("Required Prefabs")]
     [SerializeField] private GameObject bulletPrefab;
@@ -43,9 +45,24 @@ public class TeslaTowerScript : MonoBehaviour
         //Fires the projectile
         if (fireCountdown <= 0 && target != null)
         {
+            shockAreaGameObject.SetActive(true);
+            shockAreaGameObject.GetComponent<Transform>().localScale = new Vector3(transform.GetComponent<CircleCollider2D>().radius/2, transform.GetComponent<CircleCollider2D>().radius / 2,
+                shockAreaGameObject.GetComponent<Transform>().localScale.z);
+            shockAreaGameObject.GetComponent<SpriteRenderer>().color = new Color(shockAreaGameObject.GetComponent<SpriteRenderer>().color.r, shockAreaGameObject.GetComponent<SpriteRenderer>().color.g
+               , shockAreaGameObject.GetComponent<SpriteRenderer>().color.b, 0.4f);
+            time = 0;
             FireProjectile();
             fireCountdown = 1f / fireRate;
         }
+
+        if (shockAreaGameObject.activeSelf)
+        {
+            shockAreaGameObject.GetComponent<SpriteRenderer>().color = new Color(shockAreaGameObject.GetComponent<SpriteRenderer>().color.r, shockAreaGameObject.GetComponent<SpriteRenderer>().color.g
+               , shockAreaGameObject.GetComponent<SpriteRenderer>().color.b, Mathf.Lerp(0.4f, 0, time));
+            time += Time.deltaTime * 2f;
+        }
+        
+
         fireCountdown -= Time.deltaTime;
 
     }
@@ -104,8 +121,17 @@ public class TeslaTowerScript : MonoBehaviour
     private void FireProjectile()
     {
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        towerAnimator.SetBool("isShooting", true);
+        Invoke("StopShooting", 0.5f);
         bullet.GetComponent<BulletScript>().Damage = bulletDamage;
+        bullet.GetComponent<BulletScript>().SplashRange = transform.gameObject.GetComponent<CircleCollider2D>().radius;
         bullet.GetComponent<BulletScript>().SetTarget(transform.gameObject);
+    }
+
+    private void StopShooting()
+    {
+        towerAnimator.SetBool("isShooting", false);
+        shockAreaGameObject.SetActive(false);
     }
 
     private void SetTargetPriority()

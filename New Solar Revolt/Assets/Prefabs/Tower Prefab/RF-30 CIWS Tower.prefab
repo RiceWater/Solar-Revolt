@@ -2005,6 +2005,7 @@ GameObject:
   - component: {fileID: 5308531968157841055}
   - component: {fileID: -4102754970682737572}
   - component: {fileID: 3706443387248252838}
+  - component: {fileID: 8771643309305283499}
   m_Layer: 0
   m_Name: RF-30 CIWS Tower
   m_TagString: Tower
@@ -2123,6 +2124,7 @@ MonoBehaviour:
   gariumCost: 60
   fireRate: 1.5
   upgradeCost: 460000005a00000078000000
+  towerAnimator: {fileID: 8771643309305283499}
   bulletPrefab: {fileID: 200645615588126804, guid: f19fbc2cbd4fd9046a8d439473f1c9cf, type: 3}
   enemiesInRange: []
 --- !u!212 &3706443387248252838
@@ -2177,6 +2179,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8771643309305283499
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508908102647878157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4b1eaedbbb435e146b978ad53e42a14d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2464392053408842621
 GameObject:
   m_ObjectHideFlags: 0
