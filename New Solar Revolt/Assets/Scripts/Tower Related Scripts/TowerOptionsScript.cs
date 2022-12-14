@@ -39,6 +39,10 @@ public class TowerOptionsScript : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
+        if(GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsGameOver || GameObject.Find("Game Manager").GetComponent<LevelUIScript>().CongratsOn || GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsPaused)
+        {
+            return;
+        }
         rc = MouseRayCastScript.rc;
         if (rc.Length > 1)
         {

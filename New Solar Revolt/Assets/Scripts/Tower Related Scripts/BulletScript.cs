@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour
     private Rigidbody2D bulletRigidBody;
     private float moveSpeed;
     private float rotationSpeed;
-
+    private bool hasHitEnemy;
     private bool teslaTriggered;
     private void Start()
     {
@@ -36,19 +36,25 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if(splashRange > 0)
+            if (collision.gameObject.Equals(target))
             {
-                ApplySplashDamage();
-            }
-            else if (collision.gameObject.Equals(target))
-            {
-                target.GetComponent<EnemyAttributesScript>().TakeDamage(damage);
+                if (transform.name.Contains("BB-75"))
+                {
+                    bulletRigidBody.constraints = RigidbodyConstraints2D.FreezePosition;
+                    ApplySplashDamage();
+                    hasHitEnemy = true;
+                }
+                else
+                {
+                    target.GetComponent<EnemyAttributesScript>().TakeDamage(damage);
+                    Destroy(gameObject);
+                }
             }
             else
             {
                 Physics2D.IgnoreCollision(gameObject.GetComponent<Collider2D>(), collision.gameObject.GetComponent<Collider2D>());
             }
-            Destroy(gameObject);
+            
         }
         //if tesla bullet hits tesla tower, run this    (bullet acts as a catalyst of tower for AoE)
         else if(collision.gameObject.name.Contains("Tesla XM-T50 EHSS") && transform.gameObject.name.Contains("Tesla XM-T50 EHSS Bullet") && !teslaTriggered) 
@@ -71,6 +77,11 @@ public class BulletScript : MonoBehaviour
         set { splashRange = value; }
     }
 
+    public bool HasHitEnemy
+    {
+        get { return hasHitEnemy; }
+        set { hasHitEnemy = value; }
+    }
     public void SetTarget(GameObject enemy)
     {
         target = enemy;
@@ -89,7 +100,6 @@ public class BulletScript : MonoBehaviour
 
                 var damagePercent = Mathf.InverseLerp(splashRange, 0, distance);
                 enemy.TakeDamage(Mathf.Ceil(damagePercent * damage));
-                Destroy(gameObject);
             }
         }
     }
@@ -135,10 +145,21 @@ public class BulletScript : MonoBehaviour
 
     private void TravelToTarget()
     {
-        Vector3 dir = (Vector2)target.transform.position - bulletRigidBody.position;
-        dir.Normalize();
-        float rotationAmount = Vector3.Cross(dir, transform.up).z;
-        bulletRigidBody.angularVelocity = -rotationAmount * rotationSpeed;
-        bulletRigidBody.velocity = transform.up * moveSpeed;
+        float distance = Mathf.Abs(Vector3.Distance(target.transform.position, bulletRigidBody.position));
+        if(distance >= 0.25f)
+        {
+            Vector3 dir = (Vector2)target.transform.position - bulletRigidBody.position;
+            dir.Normalize();
+            float rotationAmount = Vector3.Cross(dir, transform.up).z;
+            bulletRigidBody.angularVelocity = -rotationAmount * rotationSpeed;
+            bulletRigidBody.velocity = transform.up * moveSpeed;
+        }
+        else
+        {
+            moveSpeed = 0;
+            //bulletRigidBody.velocity = Vector2.zero;
+            bulletRigidBody.constraints = RigidbodyConstraints2D.FreezePosition; 
+        }
+        
     }
 }

@@ -7,6 +7,17 @@ public class PauseMenuScript : MonoBehaviour
 {
     [SerializeField] private GameObject pauseMenu;
 
+    private void Update()
+    {
+        if (pauseMenu.activeSelf)
+        {
+            GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsPaused = true;
+        }
+        else
+        {
+            GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsPaused = false;
+        }
+    }
     public void PauseGame()
     {
         pauseMenu.SetActive(true);

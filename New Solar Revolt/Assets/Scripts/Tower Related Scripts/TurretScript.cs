@@ -12,6 +12,7 @@ public class TurretScript : MonoBehaviour
     [SerializeField] private int gariumCost;
     [SerializeField] private float fireRate;
     [SerializeField] private List<int> upgradeCost = new List<int>();
+    [SerializeField] private Animator towerAnimator;
     private int upgradeCounter;
     private float fireCountdown;
     private float bulletDamage;
@@ -116,8 +117,22 @@ public class TurretScript : MonoBehaviour
     private void FireProjectile()
     {
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnLocation.position, bulletSpawnLocation.rotation);
+        towerAnimator.SetBool("isShooting", true);
+        if (transform.gameObject.name.Contains("RF-30"))
+        {
+            Invoke("StopShooting", 0.25f);
+        }
+        else if (transform.gameObject.name.Contains("BB-75"))
+        {
+            Invoke("StopShooting", 0.1f);
+        }
         bullet.GetComponent<BulletScript>().Damage = bulletDamage;
         bullet.GetComponent<BulletScript>().SetTarget(target.gameObject);   
+    }
+
+    private void StopShooting()
+    {
+        towerAnimator.SetBool("isShooting", false);
     }
 
     private void SetTargetPriority()

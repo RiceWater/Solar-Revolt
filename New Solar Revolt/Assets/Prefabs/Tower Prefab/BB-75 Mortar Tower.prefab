@@ -2597,6 +2597,7 @@ GameObject:
   - component: {fileID: 5308531968157841055}
   - component: {fileID: 2235521230815507213}
   - component: {fileID: 2169331429717987488}
+  - component: {fileID: 708752721995339360}
   m_Layer: 0
   m_Name: BB-75 Mortar Tower
   m_TagString: Tower
@@ -2715,6 +2716,7 @@ MonoBehaviour:
   gariumCost: 90
   fireRate: 0.5
   upgradeCost: 5a00000082000000b4000000
+  towerAnimator: {fileID: 708752721995339360}
   bulletPrefab: {fileID: 200645615588126804, guid: 000319b4cd420304489a026e40d60630, type: 3}
   enemiesInRange: []
 --- !u!212 &2169331429717987488
@@ -2769,6 +2771,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &708752721995339360
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1508908102647878157}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 41bebe5e04d7d9f428df9ccb0e8a281f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3885164790247355941
 GameObject:
   m_ObjectHideFlags: 0

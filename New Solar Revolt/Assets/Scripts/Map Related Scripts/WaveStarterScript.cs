@@ -12,6 +12,10 @@ public class WaveStarterScript : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
+        if (GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsGameOver || GameObject.Find("Game Manager").GetComponent<LevelUIScript>().CongratsOn || GameObject.Find("Game Manager").GetComponent<LevelUIScript>().IsPaused)
+        {
+            return;
+        }
         transform.gameObject.SetActive(false);
         waveSpawner.StartWave();
     }

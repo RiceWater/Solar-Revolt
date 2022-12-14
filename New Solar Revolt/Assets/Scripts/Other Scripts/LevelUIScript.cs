@@ -16,6 +16,7 @@ public class LevelUIScript : MonoBehaviour
     private GariumAndLivesScript gariumAndLivesScript;
     private bool isGameOver;
     private bool congratsOn;
+    private bool isPaused;
 
     private void Start()
     {
@@ -34,8 +35,9 @@ public class LevelUIScript : MonoBehaviour
         if(gariumAndLivesScript.Lives <= 0 && !isGameOver)
         {
             gameOverMenu.SetActive(true);
-            Time.timeScale = 0f;
             isGameOver = true;
+            Time.timeScale = 0f;
+            
         }
         
         if (waveSpawnerScript.GameWon && !congratsOn)
@@ -54,6 +56,21 @@ public class LevelUIScript : MonoBehaviour
             
         }
         
+    }
+
+    public bool IsPaused
+    {
+        get { return isPaused; }
+        set { isPaused = value; }
+    }
+    public bool CongratsOn
+    {
+        get { return congratsOn; }
+    }
+
+    public bool IsGameOver
+    {
+        get { return isGameOver; }
     }
 
     private void ShowCongratsMenu()
