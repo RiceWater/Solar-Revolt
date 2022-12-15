@@ -17,7 +17,7 @@ public class BulletScript : MonoBehaviour
     {
         bulletRigidBody = transform.gameObject.GetComponent<Rigidbody2D>();
         moveSpeed = 30f;
-        rotationSpeed = 4f;
+        rotationSpeed = 450f;
         teslaTriggered = false;
     }
 
@@ -146,9 +146,10 @@ public class BulletScript : MonoBehaviour
     private void TravelToTarget()
     {
         float distance = Mathf.Abs(Vector3.Distance(target.transform.position, bulletRigidBody.position));
+        
         if(distance >= 0.25f)
         {
-            Vector3 dir = (Vector2)target.transform.position - bulletRigidBody.position;
+            Vector3 dir = (Vector2)target.transform.position - (Vector2)transform.position;
             dir.Normalize();
             float rotationAmount = Vector3.Cross(dir, transform.up).z;
             bulletRigidBody.angularVelocity = -rotationAmount * rotationSpeed;

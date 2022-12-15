@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyGarium: 27
-  enemyHealth: 180
+  enemyHealth: 200
   lifeReduction: 5
   hasAnalgesicBlood: 0
   healthBar: {fileID: 1530648564}
